@@ -1,10 +1,10 @@
 import Image from 'next/image';
-import { Award, Star, Clock, ShieldCheck, Wrench, Pencil, Hanger, Grid2X2, ClipboardList, UploadCloud, Check } from 'lucide-react';
+import { Award, Star, Clock, ShieldCheck, Wrench, Pencil, Shirt, Grid2X2, ClipboardList, UploadCloud, Check } from 'lucide-react';
 
 const services = [
   { title: 'IKEA KITCHEN\nINSTALLATION', text: 'Professional installation of IKEA kitchens done right the first time.', icon: Wrench, img: '/images/kitchen-install.png' },
   { title: 'DESIGN SERVICES', text: 'Expert design guidance to help you plan the perfect IKEA kitchen.', icon: Pencil, img: '/images/design.png' },
-  { title: 'CLOSETS & WARDROBES', text: 'Custom PAX wardrobes, closets, and storage solutions.', icon: Hanger, img: '/images/closets.png' },
+  { title: 'CLOSETS & WARDROBES', text: 'Custom PAX wardrobes, closets, and storage solutions.', icon: Shirt, img: '/images/closets.png' },
   { title: 'IKEA SYSTEMS & MORE', text: 'Entertainment centers, office systems, laundry rooms and more.', icon: Grid2X2, img: '/images/systems.png' },
   { title: 'INVENTORY & PROJECT\nMANAGEMENT', text: 'Inventory management and on-time project coordination.', icon: ClipboardList, img: '/images/inventory.png' },
 ];
