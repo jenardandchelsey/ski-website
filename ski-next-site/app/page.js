@@ -22,7 +22,7 @@ export default function Home() {
       <Header />
       <section className="hero" id="home">
         <div className="heroText">
-          <h1>EXPERT IKEA KITCHEN<br />INSTALLATION IN<br />KANSAS CITY</h1>
+          <h1>EXPERT IKEA KITCHEN INSTALLATION IN KANSAS CITY!</h1>
           <p className="tagline">We are the “KEA” to unlocking your new kitchen.</p>
           <ul>
             <li><Check size={18}/> IKEA Kitchen Installation</li>
