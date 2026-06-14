@@ -1,0 +1,4 @@
+import Image from 'next/image';
+import { QuoteSection } from '../components/Sections';
+export const metadata = { title: 'Gallery | SKI Swedish Kitchen Installers', description: 'Kitchen, closet, wardrobe, and IKEA system project gallery.' };
+export default function Page(){const imgs=['kitchen-install.png','design.png','systems.png','inventory.png','kitchen-install.png','closets.png','hero-kitchen.png','systems.png','design.png'];return <main><section className="pageHero"><p>Project Gallery</p><h1>Recent IKEA Installation Inspiration</h1><span>Placeholder imagery is shown for launch. Replace these with SKI project photos as installs are completed.</span></section><section className="section"><div className="galleryGrid big">{imgs.map((img,i)=><div className="galleryTile" key={i}><Image src={`/images/${img}`} alt="SKI gallery project" fill /></div>)}</div></section><QuoteSection/></main>}

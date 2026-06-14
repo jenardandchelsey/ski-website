@@ -1,0 +1,3 @@
+import { ServicesGrid, ProcessSection, QuoteSection } from '../components/Sections';
+export const metadata = { title: 'Services | SKI Swedish Kitchen Installers', description: 'IKEA kitchen, closet, wardrobe, design, inventory, and home system installation services.' };
+export default function ServicesPage(){return <main><section className="pageHero"><p>IKEA-focused installation</p><h1>Services Built Around IKEA Systems</h1><span>From kitchen plans to PAX wardrobes and other IKEA systems, SKI keeps the process simple, organized, and professional.</span></section><ServicesGrid/><ProcessSection/><QuoteSection/></main>}

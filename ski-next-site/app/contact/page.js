@@ -1,0 +1,3 @@
+import { QuoteSection } from '../components/Sections';
+export const metadata = { title: 'Contact SKI | Swedish Kitchen Installers', description: 'Contact SKI for IKEA kitchen, closet, wardrobe, and home system installation.' };
+export default function Page(){return <main><section className="pageHero"><p>Contact</p><h1>Contact SKI</h1><span>Placeholder contact details can be replaced once the company domain, phone, and email are finalized.</span></section><section className="section"><div className="contactCards"><article><h3>Phone</h3><p>(XXX) XXX-XXXX</p></article><article><h3>Email</h3><p>quotes@yourdomain.com</p></article><article><h3>Service Area</h3><p>Kansas City Metro + Lawrence</p></article></div></section><QuoteSection/></main>}

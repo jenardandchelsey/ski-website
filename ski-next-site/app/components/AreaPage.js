@@ -1,0 +1,3 @@
+import Link from 'next/link';
+import { ServicesGrid, QuoteSection } from './Sections';
+export default function AreaPage({city}){return <main><section className="pageHero"><p>Service Area</p><h1>IKEA Installation in {city}</h1><span>Professional IKEA kitchen, closet, wardrobe, and home system installation for homeowners in {city}.</span></section><section className="section light"><h2>SKI SERVICES IN {city.toUpperCase()}</h2><p className="wideText">Upload your IKEA plan and SKI will help turn your cabinets, wardrobes, closets, and home systems into a finished space with a clear quote and organized installation process.</p><Link className="smallCta" href="/quote">UPLOAD YOUR PLAN</Link></section><ServicesGrid/><QuoteSection/></main>}
