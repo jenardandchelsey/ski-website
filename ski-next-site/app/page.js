@@ -48,7 +48,7 @@ export default function Home() {
 
 function Header(){
   return <header className="siteHeader">
-    <a className="brand" href="#home"><Image src="/images/logo.png" alt="SKI Swedish Kitchen Installers" width={112} height={60}/></a>
+    <a className="brand" href="#home"><Image src="/images/logo.png" alt="SKI Swedish Kitchen Installers" width={150} height={80}/></a>
     <nav>
       <a href="#home">HOME</a><a href="#services">SERVICES</a><a href="#gallery">GALLERY</a><a href="#areas">SERVICE AREAS</a><a href="#about">ABOUT</a><a href="#faq">FAQ</a><a href="#contact">CONTACT</a>
     </nav>
