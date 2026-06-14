@@ -1,11 +1,12 @@
-import { ChevronDown, CloudUpload, Check, Star, Clock, ShieldCheck, Award, Wrench, Pencil, Hanger, Grid2X2, ClipboardList } from 'lucide-react';
+import Image from 'next/image';
+import { Award, Star, Clock, ShieldCheck, Wrench, Pencil, Hanger, Grid2X2, ClipboardList, UploadCloud, Check } from 'lucide-react';
 
 const services = [
-  { title: 'IKEA KITCHEN INSTALLATION', text: 'Professional installation of IKEA kitchens done right the first time.', icon: Wrench, img: 'kitchen-a' },
-  { title: 'DESIGN SERVICES', text: 'Expert design guidance to help you plan the perfect IKEA kitchen.', icon: Pencil, img: 'kitchen-b' },
-  { title: 'CLOSETS & WARDROBES', text: 'Custom PAX wardrobes, closets, and storage solutions.', icon: Hanger, img: 'closet' },
-  { title: 'IKEA SYSTEMS & MORE', text: 'Entertainment centers, office systems, laundry rooms and more.', icon: Grid2X2, img: 'kitchen-c' },
-  { title: 'INVENTORY & PROJECT MANAGEMENT', text: 'Inventory management and on-time project coordination.', icon: ClipboardList, img: 'kitchen-d' },
+  { title: 'IKEA KITCHEN\nINSTALLATION', text: 'Professional installation of IKEA kitchens done right the first time.', icon: Wrench, img: '/images/kitchen-install.png' },
+  { title: 'DESIGN SERVICES', text: 'Expert design guidance to help you plan the perfect IKEA kitchen.', icon: Pencil, img: '/images/design.png' },
+  { title: 'CLOSETS & WARDROBES', text: 'Custom PAX wardrobes, closets, and storage solutions.', icon: Hanger, img: '/images/closets.png' },
+  { title: 'IKEA SYSTEMS & MORE', text: 'Entertainment centers, office systems, laundry rooms and more.', icon: Grid2X2, img: '/images/systems.png' },
+  { title: 'INVENTORY & PROJECT\nMANAGEMENT', text: 'Inventory management and on-time project coordination.', icon: ClipboardList, img: '/images/inventory.png' },
 ];
 
 const stats = [
@@ -15,61 +16,76 @@ const stats = [
   { value: 'Fully Insured', label: 'Peace of Mind', icon: ShieldCheck },
 ];
 
-function MiniKitchen({ variant = 'main' }) {
-  return <div className={`photo ${variant}`} aria-hidden="true">
-    <div className="window"></div><div className="pendant p1"></div><div className="pendant p2"></div>
-    <div className="cab upper u1"></div><div className="cab upper u2"></div><div className="cab tall"></div>
-    <div className="counter"></div><div className="island"></div><div className="stool s1"></div><div className="stool s2"></div>
-  </div>
+export default function Home() {
+  return (
+    <main>
+      <Header />
+      <section className="hero" id="home">
+        <div className="heroText">
+          <h1>EXPERT IKEA KITCHEN<br />INSTALLATION IN<br />KANSAS CITY</h1>
+          <p className="tagline">We are the “KEA” to unlocking your new kitchen.</p>
+          <ul>
+            <li><Check size={18}/> IKEA Kitchen Installation</li>
+            <li><Check size={18}/> Closets &amp; Wardrobes</li>
+            <li><Check size={18}/> IKEA Systems &amp; More</li>
+            <li><Check size={18}/> Design &amp; Inventory Management</li>
+            <li><Check size={18}/> Fast Turnaround | Insured | Professional</li>
+          </ul>
+          <a className="cta heroCta" href="#quote">UPLOAD YOUR KITCHEN PLAN<br />FOR A FREE QUOTE <UploadCloud size={26}/></a>
+        </div>
+        <div className="heroImageWrap">
+          <Image src="/images/hero-kitchen.png" alt="Bright white IKEA style kitchen" fill priority className="heroImage" />
+        </div>
+      </section>
+      <Stats />
+      <Services />
+      <Gallery />
+      <Process />
+      <Quote />
+    </main>
+  );
 }
 
-export default function Home() {
-  return <main>
-    <header className="topbar">
-      <div className="logo"><div className="roof">⌂</div><span>SKI</span><small>SWEDISH KITCHEN INSTALLERS</small></div>
-      <nav>
-        <a>HOME</a><a>SERVICES <ChevronDown size={14}/></a><a>GALLERY</a><a>SERVICE AREAS</a><a>ABOUT</a><a>FAQ</a><a>CONTACT</a>
-      </nav>
-      <a className="btn small">UPLOAD YOUR PLAN</a>
-    </header>
+function Header(){
+  return <header className="siteHeader">
+    <a className="brand" href="#home"><Image src="/images/logo.png" alt="SKI Swedish Kitchen Installers" width={112} height={60}/></a>
+    <nav>
+      <a href="#home">HOME</a><a href="#services">SERVICES</a><a href="#gallery">GALLERY</a><a href="#areas">SERVICE AREAS</a><a href="#about">ABOUT</a><a href="#faq">FAQ</a><a href="#contact">CONTACT</a>
+    </nav>
+    <a className="topButton" href="#quote">UPLOAD YOUR PLAN</a>
+  </header>
+}
 
-    <section className="hero">
-      <div className="hero-copy">
-        <h1>EXPERT IKEA KITCHEN<br/>INSTALLATION IN<br/>KANSAS CITY</h1>
-        <p className="tagline">We are the “KEA” to unlocking your new kitchen.</p>
-        <ul>
-          <li><Check size={18}/> IKEA Kitchen Installation</li>
-          <li><Check size={18}/> Closets &amp; Wardrobes</li>
-          <li><Check size={18}/> IKEA Systems &amp; More</li>
-          <li><Check size={18}/> Design &amp; Inventory Management</li>
-          <li><Check size={18}/> Fast Turnaround | Insured | Professional</li>
-        </ul>
-        <a className="btn hero-btn">UPLOAD YOUR KITCHEN PLAN<br/>FOR A FREE QUOTE <CloudUpload size={24}/></a>
-      </div>
-      <div className="hero-image"><MiniKitchen /></div>
-    </section>
+function Stats(){
+  return <section className="statsBand">
+    {stats.map(({value,label,icon:Icon})=><div className="stat" key={value}><Icon size={56}/><div><strong>{value}</strong><span>{label}</span></div></div>)}
+  </section>
+}
 
-    <section className="stats">
-      {stats.map((s,i)=>{ const Icon=s.icon; return <div className="stat" key={s.value}><Icon size={52}/><div><b>{s.value}</b><span>{s.label}</span></div></div> })}
-    </section>
+function Services(){
+  return <section className="section" id="services">
+    <h2>OUR SERVICES</h2>
+    <p className="sectionSub">Specializing in IKEA solutions for every room in your home.</p>
+    <div className="serviceGrid">
+      {services.map(({title,text,icon:Icon,img})=><article className="card" key={title}>
+        <div className="cardImage"><Image src={img} alt={title.replace('\n',' ')} fill /></div>
+        <div className="iconBadge"><Icon size={34}/></div>
+        <h3>{title.split('\n').map((t,i)=><span key={i}>{t}{i<title.split('\n').length-1 && <br/>}</span>)}</h3>
+        <p>{text}</p>
+      </article>)}
+    </div>
+  </section>
+}
 
-    <section className="services" id="services">
-      <h2>OUR SERVICES</h2>
-      <p>Specializing in IKEA solutions for every room in your home.</p>
-      <div className="service-grid">
-        {services.map((svc)=>{ const Icon=svc.icon; return <article className="card" key={svc.title}>
-          <MiniKitchen variant={svc.img}/>
-          <div className="icon"><Icon size={32}/></div>
-          <h3>{svc.title}</h3><p>{svc.text}</p>
-        </article> })}
-      </div>
-    </section>
+function Gallery(){
+  const imgs=['kitchen-install.png','design.png','systems.png','inventory.png','kitchen-install.png','closets.png'];
+  return <section className="section gallery" id="gallery"><h2>RECENT PROJECTS</h2><p className="sectionSub">Beautiful results. Professional installation.</p><div className="galleryGrid">{imgs.map((img,i)=><div className="galleryTile" key={i}><Image src={`/images/${img}`} alt="SKI project placeholder" fill /></div>)}</div><a className="smallCta" href="#quote">VIEW FULL GALLERY</a></section>
+}
 
-    <section className="gallery" id="gallery">
-      <h2>RECENT PROJECTS</h2>
-      <p>Beautiful results. Professional installation.</p>
-      <div className="gallery-grid">{Array.from({length:8}).map((_,i)=><MiniKitchen key={i} variant={i%3===0?'kitchen-b':i%3===1?'kitchen-c':'kitchen-d'} />)}</div>
-      <a className="btn gallery-btn">VIEW FULL GALLERY</a>
-    </section>
-  </main>
+function Process(){
+  return <section className="process" id="about"><h2>OUR SIMPLE PROCESS</h2><p>From your IKEA plan to a kitchen you'll love.</p><div className="steps"><div><UploadCloud size={42}/><h3>UPLOAD YOUR PLAN</h3><p>Upload your IKEA kitchen plan or share your ideas.</p></div><span>›</span><div><ClipboardList size={42}/><h3>GET YOUR QUOTE</h3><p>We review, provide a clear quote, and timeline.</p></div><span>›</span><div><Wrench size={42}/><h3>WE INSTALL</h3><p>Sit back while our experts install to perfection.</p></div></div><a className="cta processCta" href="#quote">UPLOAD YOUR KITCHEN PLAN FOR A FREE QUOTE</a></section>
+}
+
+function Quote(){
+  return <section className="quote" id="quote"><div><h2>GET YOUR FREE QUOTE</h2><p>Upload your IKEA plan and we’ll take it from there.</p><ol><li><b>Upload your plan</b><span>PDF, PNG, JPG, or room photos.</span></li><li><b>We review & quote</b><span>You receive a clear, no-obligation quote.</span></li><li><b>Schedule installation</b><span>Once approved, we schedule your installation.</span></li></ol></div><form><h3>UPLOAD YOUR KITCHEN PLAN</h3><label className="uploadBox"><UploadCloud size={50}/><strong>Drag & drop your files here</strong><span>or click to browse</span><input type="file" multiple /></label><input placeholder="Full Name"/><input placeholder="Email Address"/><input placeholder="Phone Number"/><select defaultValue=""><option value="" disabled>Service Area</option><option>Kansas City Metro</option><option>Lawrence</option></select><textarea placeholder="Project Details / Notes" rows="5"/><button type="button">GET MY FREE QUOTE</button></form></section>
 }

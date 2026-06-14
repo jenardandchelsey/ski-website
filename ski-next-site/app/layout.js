@@ -2,7 +2,7 @@ import './globals.css';
 
 export const metadata = {
   title: 'SKI | Swedish Kitchen Installers',
-  description: 'Expert IKEA kitchen installation in Kansas City.',
+  description: 'IKEA kitchen, closet, wardrobe, and home system installation in Kansas City.',
 };
 
 export default function RootLayout({ children }) {
