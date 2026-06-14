@@ -1,12 +1,11 @@
 {
-  "name": "ski-swedish-kitchen-installers",
-  "version": "1.0.0",
+  "name": "ski-website-exact-mockup",
+  "version": "2.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "start": "next start"
   },
   "dependencies": {
     "next": "14.2.5",
@@ -14,8 +13,5 @@
     "react-dom": "18.3.1",
     "lucide-react": "^0.468.0"
   },
-  "devDependencies": {
-    "eslint": "^8.57.0",
-    "eslint-config-next": "14.2.5"
-  }
+  "devDependencies": {}
 }
