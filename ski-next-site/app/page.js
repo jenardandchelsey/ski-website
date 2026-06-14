@@ -29,7 +29,7 @@ export default function Home() {
             <li><Check size={18}/> Closets &amp; Wardrobes</li>
             <li><Check size={18}/> IKEA Systems &amp; More</li>
             <li><Check size={18}/> Design &amp; Inventory Management</li>
-            <li><Check size={18}/> Fast Turnaround | Insured | Professional</li>
+            <li><Check size={18}/> Fast Turnaround | Insured | Professionally</li>
           </ul>
           <a className="cta heroCta" href="#quote">UPLOAD YOUR KITCHEN PLAN<br />FOR A FREE QUOTE <UploadCloud size={26}/></a>
         </div>
