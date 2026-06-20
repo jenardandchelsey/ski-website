@@ -1,10 +1,10 @@
 import { Award, Star, Clock, ShieldCheck, Wrench, Pencil, Shirt, Grid2X2, ClipboardList, UploadCloud, CheckCircle, MapPin } from 'lucide-react';
 
 export const stats = [
-  { value: '500+', label: 'Kitchens Installed', icon: Award },
-  { value: '5-Star', label: 'Customer Rating', icon: Star },
-  { value: '3-5 Day', label: 'Average Installation', icon: Clock },
-  { value: 'Fully Insured', label: 'Peace of Mind', icon: ShieldCheck },
+  { value: 'IKEA', label: 'Focused Installation', icon: Award },
+  { value: 'Local', label: 'Kansas City Service', icon: Star },
+  { value: 'Plan-First', label: 'Organized Projects', icon: Clock },
+  { value: 'Clear', label: 'Installation Process', icon: ShieldCheck },
 ];
 
 export const services = [
