@@ -27,18 +27,10 @@ export default function CostCalculator() {
     setCabinetCount(Number.isNaN(count) ? 1 : Math.min(MAX_CABINETS, Math.max(1, count)));
   }
 
-  return <section className="calculatorSection" aria-labelledby="calculator-title">
-    <div className="calculatorIntro">
-      <p className="eyebrow">Plan Your Project</p>
-      <h2 id="calculator-title">Kitchen Installation Cost Calculator</h2>
-      <p>Choose the number of cabinets in your IKEA plan to see an estimated installation range.</p>
-      <ul>
-        <li>Estimated at {formatCurrency(MIN_RATE)} to {formatCurrency(MAX_RATE)} per cabinet</li>
-        <li>Cabinet installation labor only</li>
-        <li>Countertops are not included</li>
-      </ul>
-    </div>
-    <div className="calculatorCard">
+  return <aside className="calculatorCard" aria-labelledby="calculator-title">
+      <p className="calculatorEyebrow">Quick Estimate</p>
+      <h3 id="calculator-title">Cabinet Cost Calculator</h3>
+      <p className="calculatorLead">Estimate installation labor at {formatCurrency(MIN_RATE)}-{formatCurrency(MAX_RATE)} per cabinet.</p>
       <label htmlFor="cabinet-count">Number of cabinets</label>
       <div className="countControl">
         <button type="button" aria-label="Remove one cabinet" onClick={() => updateCount(cabinetCount - 1)} disabled={cabinetCount <= 1}>-</button>
@@ -51,8 +43,7 @@ export default function CostCalculator() {
         <strong>{formatCurrency(estimate.low)} - {formatCurrency(estimate.high)}</strong>
         <small>Based on {cabinetCount} {cabinetCount === 1 ? 'cabinet' : 'cabinets'}</small>
       </div>
-      <p className="estimateNote">This planning estimate is not a quote. Final pricing depends on the approved plan, site conditions, trim, panels, modifications, demolition, plumbing, electrical work, travel, and other project requirements.</p>
+      <p className="estimateNote">Planning estimate only. Countertops are excluded. Final pricing depends on the plan, site conditions, trim, panels, modifications, demolition, plumbing, electrical work, travel, and other requirements.</p>
       <Link className="smallCta calculatorCta" href="/quote">REQUEST A DETAILED QUOTE</Link>
-    </div>
-  </section>;
+  </aside>;
 }
