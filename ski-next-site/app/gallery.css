@@ -11,6 +11,12 @@
 .projectGalleryImage{position:relative;aspect-ratio:3/2;background:#e9edf3;overflow:hidden}
 .projectGalleryImage img{object-fit:cover;transition:transform .3s ease}
 .projectGalleryCard:hover img{transform:scale(1.025)}
-.projectGalleryCard figcaption{padding:13px 15px;color:#00306b;font-size:13px;font-weight:800;line-height:1.35;text-align:left}
+.projectGalleryCard figcaption{padding:13px 15px;color:#00306b;font-size:13px;font-weight:800;line-height:1.35;text-align:center}
+.recentProjectsGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;max-width:1120px;margin:28px auto 0}
+.recentProjectCard{margin:0;background:#fff;border-radius:9px;overflow:hidden;box-shadow:0 7px 20px rgba(0,31,79,.11)}
+.recentProjectImage{position:relative;aspect-ratio:3/2;background:#e9edf3;overflow:hidden}
+.recentProjectImage img{object-fit:cover;object-position:center;transition:transform .3s ease}
+.recentProjectCard:hover img{transform:scale(1.025)}
+.recentProjectCard figcaption{display:flex;align-items:center;justify-content:center;min-height:66px;padding:13px 18px;color:#00306b;font-size:13px;font-weight:800;line-height:1.4;text-align:center}
 @media(max-width:900px){.gallerySections{padding:44px 30px 56px}.projectGalleryGrid.six{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:620px){.gallerySections{padding:36px 20px 48px}.galleryCategory{margin-bottom:44px}.galleryHeading h2{font-size:26px}.projectGalleryGrid.six,.projectGalleryGrid.four{grid-template-columns:1fr}.projectGalleryCard figcaption{font-size:12px}}
+@media(max-width:620px){.gallerySections{padding:36px 20px 48px}.galleryCategory{margin-bottom:44px}.galleryHeading h2{font-size:26px}.projectGalleryGrid.six,.projectGalleryGrid.four,.recentProjectsGrid{grid-template-columns:1fr}.projectGalleryCard figcaption,.recentProjectCard figcaption{font-size:12px}}
