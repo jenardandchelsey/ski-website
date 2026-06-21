@@ -1,0 +1,16 @@
+.formNotice{font-size:13px;line-height:1.45;margin:0 0 14px}
+.uploadBox.dragging,.uploadBox:hover{border-color:#003f7d;background:#f7fbff}
+.fileList{list-style:none;margin:-3px 0 13px;padding:0;display:grid;gap:6px}
+.fileList li{display:flex;align-items:center;justify-content:space-between;gap:10px;background:#eef5fc;border-radius:4px;padding:7px 9px;font-size:12px;color:#00306b}
+.fileList button{width:28px;height:28px;padding:0;display:grid;place-items:center;box-shadow:none;background:transparent;color:#00306b}
+.projectQuestions{border:1px solid #cfd6df;border-radius:6px;margin:0 0 12px;padding:13px;text-align:left}
+.projectQuestions legend{padding:0 6px;color:#00306b;font-size:13px;font-weight:900;text-transform:uppercase}
+.projectQuestions>label,.closetChoice label{display:flex;align-items:flex-start;gap:9px;margin:9px 0;color:#002b5c;font-size:13px;line-height:1.35;cursor:pointer}
+.projectQuestions input[type="checkbox"],.projectQuestions input[type="radio"]{width:17px;height:17px;flex:0 0 auto;margin:0;accent-color:#003f7d}
+.closetChoice{border-left:3px solid #fbb316;margin:8px 0 12px 25px;padding:7px 0 7px 12px}
+.closetChoice>span{display:block;font-size:12px;font-weight:900;color:#00306b;margin-bottom:6px}
+.closetChoice label{margin:6px 0}
+.honeypot{position:absolute!important;left:-9999px!important;width:1px!important;height:1px!important;opacity:0!important}
+.formStatus{font-size:13px!important;line-height:1.4;margin:12px 0 0!important;padding:10px;border-radius:4px}
+.formStatus.success{background:#e8f7ed;color:#176b35!important}.formStatus.error{background:#fff0f0;color:#9b1c1c!important}
+.quoteForm button:disabled{opacity:.65;cursor:not-allowed}

@@ -1,20 +1,26 @@
-.quoteWithCalculator{grid-template-columns:minmax(220px,.75fr) minmax(300px,1fr) minmax(290px,.9fr);gap:28px;padding:55px 60px;align-items:start}
-.calculatorCard{background:#f7f9fc;border:1px solid #d8dee8;border-radius:8px;padding:24px;box-shadow:0 5px 18px rgba(0,0,0,.05)}
+.quoteWithCalculator{grid-template-columns:minmax(250px,.72fr) minmax(390px,1.28fr);gap:34px;padding:55px 70px;align-items:start}
+.quoteCalculators{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.calculatorCard{background:#f7f9fc;border:1px solid #d8dee8;border-radius:8px;padding:22px;box-shadow:0 5px 18px rgba(0,0,0,.05)}
 .calculatorEyebrow{margin:0 0 7px!important;color:#b77900!important;font-size:12px;font-weight:900;letter-spacing:.1em;text-transform:uppercase}
 .calculatorCard h3{margin:0 0 8px;color:#00306b;font-size:22px;line-height:1.2}
-.calculatorLead{margin:0 0 20px!important;color:#4b5d73;font-size:14px;line-height:1.45}
-.calculatorCard>label{display:block;color:#00306b;font-weight:900;text-transform:uppercase;font-size:12px;letter-spacing:.04em;margin-bottom:9px}
+.calculatorLead{margin:0 0 17px!important;color:#4b5d73;font-size:14px;line-height:1.45}
+.calculatorCard>label{display:block;color:#00306b;font-weight:900;text-transform:uppercase;font-size:12px;letter-spacing:.04em;margin-bottom:8px}
 .countControl{display:grid;grid-template-columns:42px 1fr 42px;gap:8px;align-items:center}
-.countControl button{width:100%;height:44px;padding:0;font-size:23px;box-shadow:none}
+.countControl button{width:100%;height:42px;padding:0;font-size:23px;box-shadow:none}
 .countControl button:disabled{background:#d8dee8;color:#7b8796}
-.countControl input{height:44px;margin:0;text-align:center;font-size:20px;font-weight:900;color:#002b5c}
-.cabinetRange{margin:15px 0 18px;padding:0;accent-color:#003f7d}
-.estimateResult{background:linear-gradient(120deg,#00346d,#002454);color:#fff;border-radius:7px;padding:18px 12px;text-align:center}
+.countControl input{height:42px;margin:0;text-align:center;font-size:20px;font-weight:900;color:#002b5c}
+.cabinetRange{margin:14px 0 17px;padding:0;accent-color:#003f7d}
+.estimateResult{background:linear-gradient(120deg,#00346d,#002454);color:#fff;border-radius:7px;padding:17px 12px;text-align:center}
 .estimateResult span,.estimateResult small{display:block}
 .estimateResult span{text-transform:uppercase;font-size:10px;font-weight:900;letter-spacing:.07em;color:#dfe9f8}
-.estimateResult strong{display:block;font-size:28px;margin:7px 0;color:#fbb316}
+.estimateResult strong{display:block;font-size:27px;margin:6px 0;color:#fbb316}
 .estimateResult small{color:#dfe9f8;font-size:12px}
-.estimateNote{font-size:11px!important;line-height:1.45;color:#4b5d73!important;margin:14px 0!important}
-.calculatorCta{display:block;text-align:center;padding:12px 15px;font-size:12px}
-@media(max-width:1150px){.quoteWithCalculator{grid-template-columns:1fr 1fr;padding:45px 32px}.quoteIntro{grid-column:1/-1}.quoteIntro ol{grid-template-columns:repeat(3,1fr)}}
-@media(max-width:700px){.quoteWithCalculator{grid-template-columns:1fr;padding:38px 22px}.quoteIntro{grid-column:auto}.quoteIntro ol{grid-template-columns:1fr}.estimateResult strong{font-size:25px}}
+.estimateNote{font-size:11px!important;line-height:1.45;color:#4b5d73!important;margin:13px 0!important}
+.calculatorCta{display:block;text-align:center;padding:11px 15px;font-size:12px}
+.closetTypes{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:17px}
+.closetTypes button{background:#fff;color:#00306b;border:1px solid #cfd6df;box-shadow:none;padding:10px;text-align:left;font-size:12px;min-height:58px}
+.closetTypes button strong,.closetTypes button span{display:block}
+.closetTypes button span{font-size:11px;color:#4b5d73;margin-top:4px}
+.closetTypes button.selected{border:2px solid #003f7d;background:#eef5fc;padding:9px}
+@media(max-width:950px){.quoteWithCalculator{grid-template-columns:1fr;padding:45px 32px}.quoteCalculators{grid-column:auto}.quoteIntro ol{grid-template-columns:1fr 1fr}.quoteCalculators{grid-template-columns:1fr 1fr}}
+@media(max-width:700px){.quoteWithCalculator{padding:38px 22px}.quoteIntro ol,.quoteCalculators{grid-template-columns:1fr}.estimateResult strong{font-size:24px}}
