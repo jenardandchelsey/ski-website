@@ -77,7 +77,7 @@ export default function QuoteForm(){
     <fieldset className="projectQuestions">
       <legend>A couple quick questions</legend>
       <label><input type="checkbox" name="isCloset" value="Yes" checked={isCloset} onChange={(event) => setIsCloset(event.target.checked)}/><span>Is this for a closet?</span></label>
-      {isCloset && <div className="closetChoice"><span>Select the closet type:</span>{['Reach-in Closet', 'Small Walk-in Closet', 'Large Walk-in Closet', 'Master Bedroom Boutique-style'].map((type) => <label key={type}><input type="radio" name="closetType" value={type} required={isCloset}/><span>{type}</span></label>)}</div>}
+      {isCloset && <div className="closetChoice"><span>Select the closet type:</span>{['Reach-in Closet', 'Small Walk-in Closet', 'Large Walk-in Closet', 'Master Bedroom Boutique-style'].map((type) => <label key={type}><input type="radio" name="closetType" value={type} required={isCloset}/><span>{type}</span></label>)}<label className="designAssistance"><input type="checkbox" name="designAssistance" value="Yes"/><span>Do you need closet design assistance?</span></label></div>}
       <label><input type="checkbox" name="inventoryService" value="Yes"/><span>Do you want us to perform inventory for you?</span></label>
       <label><input type="checkbox" name="expeditedService" value="Yes"/><span>Do you need expedited services?</span></label>
     </fieldset>

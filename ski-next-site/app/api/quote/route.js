@@ -27,6 +27,7 @@ export async function POST(request) {
       area: clean(formData.get('area'), 120),
       isCloset: formData.get('isCloset') === 'Yes' ? 'Yes' : 'No',
       closetType: clean(formData.get('closetType'), 120) || 'Not selected',
+      designAssistance: formData.get('designAssistance') === 'Yes' ? 'Yes' : 'No',
       inventoryService: formData.get('inventoryService') === 'Yes' ? 'Yes' : 'No',
       expeditedService: formData.get('expeditedService') === 'Yes' ? 'Yes' : 'No',
       details: clean(formData.get('details'), 5000),
@@ -59,7 +60,8 @@ export async function POST(request) {
     const rows = [
       ['Full Name', submission.name], ['Email Address', submission.email], ['Phone Number', submission.phone],
       ['Service Area', submission.area], ['Closet Project', submission.isCloset], ['Closet Type', submission.closetType],
-      ['Inventory Service', submission.inventoryService], ['Expedited Service', submission.expeditedService],
+      ['Closet Design Assistance', submission.designAssistance], ['Inventory Service', submission.inventoryService],
+      ['Expedited Service', submission.expeditedService],
       ['Project Details', submission.details], ['Attachments', files.length ? files.map((file) => file.name).join(', ') : 'None'],
     ];
 
