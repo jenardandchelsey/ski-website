@@ -18,7 +18,7 @@ const serviceDefinitions = [
 const serviceImages = {
   '/services/ikea-kitchen-installation': '/images/services/white-kitchen.jpg',
   '/services/design-inventory-management': '/images/services/closet-measuring-landscape.png',
-  '/services/closets-wardrobes': '/images/services/organized-kids-closet.png',
+  '/services/closets-wardrobes': '/images/services/kids-pax-reach-in.png',
   '/services/ikea-systems': '/images/services/powder-room-landscape.png',
   '/process': '/images/services/pallet-inventory-landscape.png',
 };
