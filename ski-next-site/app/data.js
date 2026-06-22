@@ -7,13 +7,26 @@ export const stats = [
   { value: 'Clear', label: 'Installation Process', icon: ShieldCheck },
 ];
 
-export const services = [
+const serviceDefinitions = [
   { slug: '/services/ikea-kitchen-installation', title: 'IKEA Kitchen Installation', shortTitle: 'IKEA KITCHEN\nINSTALLATION', text: 'Professional installation of IKEA kitchens done right the first time.', icon: Wrench, img: '/images/kitchen-install.png', keywords: ['SEKTION cabinets', 'kitchen islands', 'pantries', 'panels and trim'] },
   { slug: '/services/design-inventory-management', title: 'Design & Inventory Management', shortTitle: 'DESIGN SERVICES', text: 'Plan review, design guidance, inventory tracking, and project coordination.', icon: Pencil, img: '/images/design.png', keywords: ['IKEA plan review', 'box inventory', 'missing part checks', 'project scheduling'] },
   { slug: '/services/closets-wardrobes', title: 'Closets & Wardrobes', shortTitle: 'CLOSETS & WARDROBES', text: 'Custom PAX wardrobes, closets, and storage solutions.', icon: Shirt, img: '/images/closets.png', keywords: ['PAX wardrobes', 'closet systems', 'storage solutions', 'built-in look'] },
   { slug: '/services/ikea-systems', title: 'IKEA Systems & More', shortTitle: 'IKEA SYSTEMS & MORE', text: 'Entertainment centers, office systems, laundry rooms and more.', icon: Grid2X2, img: '/images/systems.png', keywords: ['BESTÅ systems', 'home office', 'laundry storage', 'media centers'] },
   { slug: '/process', title: 'Inventory & Project Management', shortTitle: 'INVENTORY & PROJECT\nMANAGEMENT', text: 'Inventory management and on-time project coordination.', icon: ClipboardList, img: '/images/inventory.png', keywords: ['project management', 'assembly coordination', 'delivery planning', 'installation scheduling'] },
 ];
+
+const serviceImages = {
+  '/services/ikea-kitchen-installation': '/images/services/white-kitchen.jpg',
+  '/services/design-inventory-management': '/images/services/closet-measuring.png',
+  '/services/closets-wardrobes': '/images/services/organized-kids-closet.png',
+  '/services/ikea-systems': '/images/services/powder-room.webp',
+  '/process': '/images/services/pallet-inventory.png',
+};
+
+export const services = serviceDefinitions.map(service => ({
+  ...service,
+  img: serviceImages[service.slug] || service.img,
+}));
 
 export const serviceAreas = [
   { city: 'Kansas City', slug: '/service-areas/kansas-city' },
