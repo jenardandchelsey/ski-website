@@ -2,6 +2,7 @@ import './globals.css';
 import './calculator.css';
 import './quote-form.css';
 import './gallery.css';
+import './trademark.css';
 import Header from './components/Header';
 import Footer from './components/Footer';
 
