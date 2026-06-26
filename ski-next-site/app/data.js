@@ -39,6 +39,7 @@ export const serviceAreas = [
 
 export const faqs = [
   ['Do you only install IKEA systems?', 'Yes. SKI is focused on IKEA kitchens, closets, wardrobes, and IKEA home systems so our process stays specialized and efficient.'],
+  ['What services do you provide?', 'We provide inventory services, cabinet and closet assembly, and installation for cabinet and closet systems. We can also create small custom supplemental fillers, especially for closets, to help optimize challenging spaces. We do not provide demolition, painting, electrical work, plumbing work, moving services, or countertop installation, but we can connect you with trusted vendors who can coordinate with us on your project.'],
   ['Do I need to have my IKEA plan before requesting a quote?', 'A plan helps us quote faster, but you can also upload photos, measurements, or notes and we can guide you through next steps.'],
   ['Do you serve Lawrence?', 'Yes. SKI serves the Kansas City metro and Lawrence area.'],
   ['Can you inventory my IKEA order?', 'Yes. Inventory and project management are part of our process. We can help identify missing or damaged items before installation day.'],
