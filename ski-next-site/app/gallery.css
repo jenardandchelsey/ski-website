@@ -1,5 +1,21 @@
 .heroImage{filter:brightness(1.08) contrast(1.03)}
 .splitImage.focusTop img{object-position:center top}
+.galleryChooser{padding:58px 70px 72px;background:#f7f9fc}
+.galleryChooserGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px;max-width:1180px;margin:0 auto}
+.galleryChoiceCard{display:flex;flex-direction:column;overflow:hidden;border:1px solid rgba(0,48,107,.1);border-radius:16px;color:inherit;background:#fff;box-shadow:0 12px 34px rgba(0,31,79,.11);text-decoration:none;transition:transform .25s ease,box-shadow .25s ease}
+.galleryChoiceCard:hover{transform:translateY(-5px);box-shadow:0 18px 42px rgba(0,31,79,.17)}
+.galleryChoiceCard:focus-visible{outline:3px solid #fbb316;outline-offset:4px}
+.galleryChoiceImage{position:relative;aspect-ratio:16/10;overflow:hidden;background:#e9edf3}
+.galleryChoiceImage img{object-fit:cover;transition:transform .35s ease}
+.galleryChoiceCard:hover .galleryChoiceImage img{transform:scale(1.035)}
+.galleryChoiceContent{display:flex;flex:1;flex-direction:column;padding:28px 30px 30px}
+.galleryChoiceContent>p{margin:0 0 7px;color:#b87700;font-size:12px;font-weight:1000;letter-spacing:.16em;text-transform:uppercase}
+.galleryChoiceContent h2{margin:0;color:#00306b;font-size:30px;font-weight:1000}
+.galleryChoiceContent>span{margin:10px 0 24px;color:#4b5d73;font-size:15px;line-height:1.6}
+.galleryChoiceContent strong{display:flex;align-items:center;gap:8px;margin-top:auto;color:#00306b;font-size:14px;font-weight:1000;text-transform:uppercase;letter-spacing:.04em}
+.galleryBack{max-width:1320px;margin:0 auto 24px}
+.galleryBack a{display:inline-flex;align-items:center;gap:7px;color:#00306b;font-size:13px;font-weight:900;text-decoration:none}
+.galleryBack a:hover{text-decoration:underline}
 .gallerySections{padding:52px 70px 68px;background:#f7f9fc}
 .galleryCategory{max-width:1240px;margin:0 auto 58px}
 .galleryCategory:last-child{margin-bottom:0}
@@ -41,5 +57,6 @@
 .projectLightboxImage img{object-fit:contain}
 .projectLightboxContent p{margin:12px auto 0;color:#fff;font-size:15px;font-weight:800;line-height:1.4;text-align:center}
 .projectLightboxClose{position:fixed;top:18px;right:22px;z-index:1001;display:grid;place-items:center;width:48px;height:48px;padding:0;border-radius:50%;color:#001f4f;background:#fbb316;cursor:pointer}
-@media(max-width:900px){.gallerySections{padding:44px 30px 56px}.workInProgressCategory{padding:32px 24px 36px}.projectGalleryGrid.six,.recentProjectsGrid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:620px){.gallerySections{padding:36px 20px 48px}.galleryCategory{margin-bottom:44px}.workInProgressCategory{margin-inline:-4px;padding:28px 16px 32px;border-radius:14px}.galleryHeading h2{font-size:26px}.workInProgressHeading h2{font-size:30px}.workInProgressHeading>p:last-child{font-size:14px;line-height:1.65}.workInProgressGroups{gap:38px}.workInProgressGroup+.workInProgressGroup{padding-top:34px}.workInProgressGroupHeading h3{font-size:20px}.projectGalleryGrid.six,.projectGalleryGrid.four,.recentProjectsGrid{grid-template-columns:1fr}.projectGalleryCard figcaption,.recentProjectCard figcaption{font-size:12px}.recentProjectExpand{opacity:1;transform:none}.projectLightbox{padding:16px}.projectLightboxImage{height:calc(100vh - 115px)}.projectLightboxClose{top:12px;right:12px}}
+@media(max-width:900px){.galleryChooser{padding:48px 30px 60px}.gallerySections{padding:44px 30px 56px}.workInProgressCategory{padding:32px 24px 36px}.projectGalleryGrid.six,.recentProjectsGrid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:700px){.galleryChooserGrid{grid-template-columns:1fr}.galleryChoiceContent{padding:24px}.galleryChoiceContent h2{font-size:27px}}
+@media(max-width:620px){.galleryChooser{padding:36px 20px 48px}.gallerySections{padding:36px 20px 48px}.galleryCategory{margin-bottom:44px}.workInProgressCategory{margin-inline:-4px;padding:28px 16px 32px;border-radius:14px}.galleryHeading h2{font-size:26px}.workInProgressHeading h2{font-size:30px}.workInProgressHeading>p:last-child{font-size:14px;line-height:1.65}.workInProgressGroups{gap:38px}.workInProgressGroup+.workInProgressGroup{padding-top:34px}.workInProgressGroupHeading h3{font-size:20px}.projectGalleryGrid.six,.projectGalleryGrid.four,.recentProjectsGrid{grid-template-columns:1fr}.projectGalleryCard figcaption,.recentProjectCard figcaption{font-size:12px}.recentProjectExpand{opacity:1;transform:none}.projectLightbox{padding:16px}.projectLightboxImage{height:calc(100vh - 115px)}.projectLightboxClose{top:12px;right:12px}}
