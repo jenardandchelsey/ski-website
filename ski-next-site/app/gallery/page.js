@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import { QuoteSection } from '../components/Sections';
+import RecentProjects from '../components/RecentProjects';
 
 export const metadata = {
   title: 'Gallery | SKI Swedish Kitchen Installers',
@@ -51,10 +52,80 @@ const gallerySections = [
   },
 ];
 
-export default function GalleryPage(){
+function projectSequence(slug, count, label, finalReveal = false) {
+  return Array.from({ length: count }, (_, index) => {
+    const number = String(index + 1).padStart(2, '0');
+    const isFinal = finalReveal && index === count - 1;
+    return {
+      img: `/images/gallery/work-in-progress/${slug}-${number}.jpg`,
+      alt: isFinal ? `Completed ${label}` : `${label} installation in progress, view ${index + 1}`,
+      caption: isFinal ? `The finished ${label}` : `Installation progress — view ${index + 1}`,
+    };
+  });
+}
+
+const workInProgressSections = [
+  {
+    title: 'Kitchen Installation — Project One',
+    intro: 'Base cabinets are positioned, leveled, and prepared for the next stage of the build.',
+    projects: projectSequence('kitchen-project-one', 3, 'kitchen'),
+  },
+  {
+    title: 'Kitchen Installation — Project Two',
+    intro: 'A full-room installation advances from cabinet placement to a clean, organized layout.',
+    projects: projectSequence('kitchen-project-two', 7, 'kitchen'),
+  },
+  {
+    title: 'Laundry Room Installation',
+    intro: 'Purpose-built cabinetry, a generous work surface, and a utility sink transform this hardworking room.',
+    projects: projectSequence('laundry-room', 7, 'laundry room', true),
+  },
+  {
+    title: 'Primary Bathroom — Project One',
+    intro: 'Carefully fitted vanity components establish the foundation for a polished primary bath.',
+    projects: [
+      ...projectSequence('primary-bathroom-one', 3, 'primary bathroom'),
+      {
+        img: '/images/gallery/work-in-progress/primary-bathroom-one-04.png',
+        alt: 'Completed primary bathroom with floating vanities and glass shower enclosure',
+        caption: 'The finished primary bathroom',
+      },
+    ],
+  },
+  {
+    title: 'Primary Bathroom — Project Two',
+    intro: 'Vanity boxes and drawer components are assembled and aligned for a refined built-in finish.',
+    projects: projectSequence('primary-bathroom-two', 3, 'primary bathroom'),
+  },
+  {
+    title: 'Kitchen Installation — Project Three',
+    intro: 'Follow this detailed transformation from initial layout and cabinet assembly through the finished kitchen.',
+    projects: projectSequence('kitchen-project-three', 25, 'kitchen', true),
+  },
+  {
+    title: 'Primary Closet Installation',
+    intro: 'A tailored storage system comes together with careful spacing, alignment, and full-height cabinetry.',
+    projects: projectSequence('primary-closet', 2, 'primary closet', true),
+  },
+];
+
+export default function GalleryPage() {
   return <main>
-    <section className="pageHero"><p>Project Gallery</p><h1>IKEA-Style Installation Inspiration</h1><span>Explore realistic design inspiration for kitchens, closets, bathrooms, and laundry rooms. Generated inspiration images will be replaced with SKI project photography as installations are completed.</span></section>
+    <section className="pageHero"><p>Project Gallery</p><h1>IKEA Installation Inspiration</h1><span>Explore real SKI installations in progress alongside design inspiration for kitchens, closets, bathrooms, and laundry rooms.</span></section>
     <section className="gallerySections">
+      <section className="galleryCategory workInProgressCategory">
+        <div className="galleryHeading workInProgressHeading">
+          <p className="galleryEyebrow">Behind the Build</p>
+          <h2>Work in Progress</h2>
+          <p>From carefully organized components to beautifully aligned cabinetry, our efficient installation process brings your IKEA system together with precision. As the work unfolds, you can watch the room take shape—and see the home you imagined come to life.</p>
+        </div>
+        <div className="workInProgressGroups">
+          {workInProgressSections.map((section) => <section className="workInProgressGroup" key={section.title}>
+            <div className="workInProgressGroupHeading"><h3>{section.title}</h3><p>{section.intro}</p></div>
+            <RecentProjects projects={section.projects} />
+          </section>)}
+        </div>
+      </section>
       {gallerySections.map((section) => <section className="galleryCategory" key={section.title}>
         <div className="galleryHeading"><h2>{section.title}</h2><p>{section.intro}</p></div>
         <div className={`projectGalleryGrid ${section.images.length === 6 ? 'six' : 'four'}`}>
@@ -65,6 +136,6 @@ export default function GalleryPage(){
         </div>
       </section>)}
     </section>
-    <QuoteSection/>
-  </main>
+    <QuoteSection />
+  </main>;
 }
