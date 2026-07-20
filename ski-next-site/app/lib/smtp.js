@@ -60,11 +60,11 @@ function wrapBase64(buffer) {
   return buffer.toString('base64').match(/.{1,76}/g)?.join('\r\n') || '';
 }
 
-function createMessage({ from, to, replyTo, subject, text, html, attachments }) {
+function createMessage({ from, to, cc, replyTo, subject, text, html, attachments }) {
   const mixed = `mixed-${randomUUID()}`;
   const alternative = `alternative-${randomUUID()}`;
   const lines = [
-    `From: ${from}`, `To: ${to}`, `Reply-To: ${replyTo}`, `Subject: ${encodeHeader(subject)}`,
+    `From: ${from}`, `To: ${to}`, ...(cc ? [`Cc: ${cc}`] : []), `Reply-To: ${replyTo}`, `Subject: ${encodeHeader(subject)}`,
     `Date: ${new Date().toUTCString()}`, 'MIME-Version: 1.0',
     `Content-Type: multipart/mixed; boundary="${mixed}"`, '', `--${mixed}`,
     `Content-Type: multipart/alternative; boundary="${alternative}"`, '', `--${alternative}`,
@@ -100,6 +100,7 @@ export async function sendSmtpMail(options) {
     await command(socket, reader, `AUTH PLAIN ${auth}`, [235]);
     await command(socket, reader, `MAIL FROM:<${options.username}>`, [250]);
     await command(socket, reader, `RCPT TO:<${options.to}>`, [250, 251]);
+    if (options.cc) await command(socket, reader, `RCPT TO:<${options.cc}>`, [250, 251]);
     await command(socket, reader, 'DATA', [354]);
     socket.write(`${createMessage(options)}\r\n.\r\n`);
     const result = await reply(reader);

@@ -102,6 +102,7 @@ export async function POST(request) {
       password: smtpPassword,
       from: `SKI Website <${smtpUser}>`,
       to: recipient,
+      cc: 'chelsey@ski-kitchens.com',
       replyTo: submission.email,
       subject: quoteKey,
       text: textBody,
