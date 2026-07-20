@@ -113,6 +113,39 @@ export async function POST(request) {
       attachments,
     });
 
+    const customerFirstName = escapeHtml(submission.name.split(/\s+/)[0] || submission.name);
+    const confirmationSubject = 'We received your SKI quote request';
+    const confirmationText = `Hello ${submission.name},
+
+Thank you for your interest in Swedish Kitchen Installers. We have received your quote request (${quoteKey}).
+
+A member of our team is working diligently to prepare your quote. You can expect to receive it within 2 business days.
+
+If you need to add any information in the meantime, reply to this email.
+
+Swedish Kitchen Installers
+Call/Text: 913-229-4748
+quotes@ski-kitchens.com`;
+    const confirmationHtml = `<div style="margin:0;background:#f2f5f8;padding:24px;font-family:Arial,sans-serif"><div style="max-width:640px;margin:auto;background:#fff;border:1px solid #d8dee8;border-radius:8px;overflow:hidden"><div style="background:#003f7d;padding:22px 26px"><h1 style="margin:0;color:#fff;font-size:24px">Thank you for contacting SKI</h1></div><div style="padding:26px;color:#26384d;font-size:16px;line-height:1.6"><p style="margin:0 0 16px">Hello ${customerFirstName},</p><p style="margin:0 0 16px">Thank you for your interest in Swedish Kitchen Installers. We have received your quote request.</p><div style="margin:20px 0;padding:16px 18px;background:#f7f9fc;border-left:4px solid #fbb316"><strong style="color:#00306b">Request reference:</strong> ${escapeHtml(quoteKey)}</div><p style="margin:0 0 16px">A member of our team is working diligently to prepare your quote. You can expect to receive it within <strong>2 business days</strong>.</p><p style="margin:0 0 22px">If you need to add any information in the meantime, simply reply to this email.</p><p style="margin:0;color:#00306b;font-weight:bold">Swedish Kitchen Installers</p><p style="margin:4px 0 0;color:#44566c">Call/Text: <a href="tel:+19132294748" style="color:#003f7d">913-229-4748</a><br><a href="mailto:quotes@ski-kitchens.com" style="color:#003f7d">quotes@ski-kitchens.com</a></p></div></div></div>`;
+
+    try {
+      await sendSmtpMail({
+        host: process.env.SMTP_HOST || 'smtp.gmail.com',
+        port: Number(process.env.SMTP_PORT || 465),
+        username: smtpUser,
+        password: smtpPassword,
+        from: 'SKI Quotes <quotes@ski-kitchens.com>',
+        to: submission.email,
+        replyTo: 'quotes@ski-kitchens.com',
+        subject: confirmationSubject,
+        text: confirmationText,
+        html: confirmationHtml,
+        attachments: [],
+      });
+    } catch (confirmationError) {
+      console.error('Quote confirmation email failed:', confirmationError);
+    }
+
     return Response.json({ ok: true });
   } catch (error) {
     console.error('Quote submission failed:', error);
