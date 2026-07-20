@@ -56,7 +56,10 @@ export async function POST(request) {
 
     const smtpUser = process.env.SMTP_USER;
     const smtpPassword = process.env.SMTP_APP_PASSWORD;
-    const recipient = 'quotes@ski-kitchens.com';
+    const recipients = {
+      to: 'chelsey@ski-kitchens.com',
+      cc: 'jenard@ski-kitchens.com',
+    };
     if (!smtpUser || !smtpPassword) {
       console.error('Quote email is not configured: missing SMTP_USER or SMTP_APP_PASSWORD.');
       return Response.json({ error: 'The quote inbox is temporarily unavailable. Please try again shortly.' }, { status: 503 });
@@ -100,9 +103,9 @@ export async function POST(request) {
       port: Number(process.env.SMTP_PORT || 465),
       username: smtpUser,
       password: smtpPassword,
-      from: `SKI Website <${smtpUser}>`,
-      to: recipient,
-      cc: 'chelsey@ski-kitchens.com',
+      from: 'SKI Website <quotes@ski-kitchens.com>',
+      to: recipients.to,
+      cc: recipients.cc,
       replyTo: submission.email,
       subject: quoteKey,
       text: textBody,

@@ -3,7 +3,7 @@ import { Award, Star, Clock, ShieldCheck, Wrench, Pencil, Shirt, Grid2X2, Clipbo
 export const contactDetails = {
   email: 'info@ski-kitchens.com',
   emailHref: 'mailto:info@ski-kitchens.com',
-  phone: '913-229-4748',
+  phone: 'Call/Text: 913-229-4748',
   phoneHref: 'tel:+19132294748',
 };
 
@@ -50,7 +50,6 @@ export const faqs = [
   ['Do I need to have my IKEA plan before requesting a quote?', 'A plan helps us quote faster, but you can also upload photos, measurements, or notes and we can guide you through next steps.'],
   ['Do you serve Lawrence?', 'Yes. SKI serves the Kansas City metro and Lawrence area.'],
   ['Can you inventory my IKEA order?', 'Yes. Inventory and project management are part of our process. We can help identify missing or damaged items before installation day.'],
-  ['Are you insured?', 'The site is prepared to display insurance information once your company registration and insurance details are finalized.'],
 ];
 
 export const processSteps = [
