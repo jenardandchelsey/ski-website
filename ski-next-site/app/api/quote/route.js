@@ -35,7 +35,7 @@ export async function POST(request) {
       details: clean(formData.get('details'), 5000),
     };
 
-    if (!submission.name || !submission.email || !submission.phone || !submission.area || !submission.details) {
+    if (!submission.name || !submission.email || !submission.phone || !submission.area) {
       return Response.json({ error: 'Please complete all required fields.' }, { status: 400 });
     }
     if (!/^\S+@\S+\.\S+$/.test(submission.email)) {
@@ -67,7 +67,7 @@ export async function POST(request) {
       ['Service Area', submission.area], ['Closet Project', submission.isCloset], ['Closet Type', submission.closetType],
       ['Closet Design Assistance', submission.designAssistance], ['Inventory Service', submission.inventoryService],
       ['Expedited Service', submission.expeditedService],
-      ['Project Details', submission.details], ['Attachments', files.length ? files.map((file) => file.name).join(', ') : 'None'],
+      ['Project Details', submission.details || 'Not provided'], ['Attachments', files.length ? files.map((file) => file.name).join(', ') : 'None'],
     ];
 
     const htmlRows = rows.map(([label, value]) => `<tr><th style="padding:11px 14px;border:1px solid #d8dee8;text-align:left;background:#f7f9fc;color:#00306b;width:190px">${escapeHtml(label)}</th><td style="padding:11px 14px;border:1px solid #d8dee8;white-space:pre-wrap;color:#26384d">${escapeHtml(value)}</td></tr>`).join('');

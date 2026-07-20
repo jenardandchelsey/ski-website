@@ -117,7 +117,7 @@ export default function QuoteForm(){
       <label><input type="checkbox" name="expeditedService" value="Yes"/><span>Do you need expedited services?</span></label>
     </fieldset>
 
-    <textarea name="details" placeholder="Project Details / Notes" rows="5" required/>
+    <textarea name="details" placeholder="Project Details / Notes (optional)" rows="5"/>
     <input className="honeypot" type="text" name="companyWebsite" tabIndex="-1" autoComplete="off" aria-hidden="true"/>
     <div className="formActions"><button type="submit" disabled={submitting}>{submitting ? 'SENDING...' : 'GET MY FREE QUOTE'}</button><button className="saveQuoteButton" type="button" onClick={saveQuoteCopy} title="Download the quote PDF and all selected files in one ZIP"><Save size={18}/> SAVE A COPY</button></div>
     {status.message && <p className={`formStatus ${status.type}`} role="status">{status.message}</p>}
