@@ -74,8 +74,10 @@ function createMessage({ from, to, replyTo, subject, text, html, attachments }) 
   ];
   attachments.forEach((attachment) => {
     const filename = attachment.filename.replace(/[\r\n"\\]/g, '_').slice(0, 180);
+    const disposition = attachment.disposition === 'inline' ? 'inline' : 'attachment';
     lines.push('', `--${mixed}`, `Content-Type: ${attachment.contentType}; name="${filename}"`,
-      'Content-Transfer-Encoding: base64', `Content-Disposition: attachment; filename="${filename}"`, '',
+      'Content-Transfer-Encoding: base64', ...(attachment.contentId ? [`Content-ID: <${attachment.contentId}>`] : []),
+      `Content-Disposition: ${disposition}; filename="${filename}"`, '',
       wrapBase64(attachment.content));
   });
   lines.push('', `--${mixed}--`, '');
