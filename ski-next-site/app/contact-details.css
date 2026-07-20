@@ -1,0 +1,19 @@
+.contactLink,
+.quoteContact a {
+  color: #003f7d;
+  font-weight: 900;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.quoteContact {
+  line-height: 1.6;
+}
+
+.footerContact {
+  margin: 18px 0;
+}
+
+.footerContact a {
+  font-weight: 800;
+}

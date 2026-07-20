@@ -1,5 +1,12 @@
 import { Award, Star, Clock, ShieldCheck, Wrench, Pencil, Shirt, Grid2X2, ClipboardList, UploadCloud, CheckCircle, MapPin } from 'lucide-react';
 
+export const contactDetails = {
+  email: 'info@ski-kitchens.com',
+  emailHref: 'mailto:info@ski-kitchens.com',
+  phone: '913-229-4748',
+  phoneHref: 'tel:+19132294748',
+};
+
 export const stats = [
   { value: 'IKEA', label: 'Focused Installation', icon: Award },
   { value: 'Local', label: 'Kansas City Service', icon: Star },
