@@ -19,7 +19,7 @@ export function buildQuoteKey(submission, date = new Date()) {
   const names = String(submission.name || '').trim().split(/\s+/).filter(Boolean);
   const firstInitial = safeFilePart(names[0]?.slice(0, 1) || 'X').toUpperCase();
   const lastName = safeFilePart(names.at(-1) || 'Unknown');
-  const service = submission.isCloset === 'Yes' ? 'closet' : 'kitchen';
+  const service = submission.isCloset === 'Yes' ? 'Closet' : 'Kitchen';
   return `${lastName}-${firstInitial}-${service}-${centralDateParts(date)}`;
 }
 
