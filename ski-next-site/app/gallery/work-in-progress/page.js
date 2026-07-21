@@ -4,8 +4,9 @@ import { QuoteSection } from '../../components/Sections';
 import RecentProjects from '../../components/RecentProjects';
 
 export const metadata = {
-  title: 'Work in Progress Gallery | SKI Swedish Kitchen Installers',
+  title: 'IKEA Installation Work in Progress Gallery',
   description: 'Follow real SKI kitchen, bathroom, laundry, and closet installations as they take shape.',
+  alternates: { canonical: '/gallery/work-in-progress' },
 };
 
 function projectSequence(slug, count, label, finalReveal = false) {

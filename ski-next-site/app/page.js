@@ -3,6 +3,12 @@ import Link from 'next/link';
 import { UploadCloud, Check } from 'lucide-react';
 import { Stats, ServicesGrid, GalleryPreview, ProcessSection, QuoteSection, AreasPreview, FAQPreview, WhySKI } from './components/Sections';
 
+export const metadata = {
+  title: { absolute: 'IKEA Kitchen Installers in Kansas City | SKI' },
+  description: 'Professional IKEA kitchen, cabinet, PAX closet, and wardrobe installation in Kansas City and Lawrence. Upload your plan for a free quote.',
+  alternates: { canonical: '/' },
+};
+
 export default function Home() {
   return <main>
     <section className="hero" id="home">

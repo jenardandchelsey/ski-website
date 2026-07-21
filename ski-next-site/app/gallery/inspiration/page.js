@@ -4,8 +4,9 @@ import { ArrowLeft } from 'lucide-react';
 import { QuoteSection } from '../../components/Sections';
 
 export const metadata = {
-  title: 'Inspiration Gallery | SKI Swedish Kitchen Installers',
+  title: 'IKEA Kitchen & Closet Inspiration Gallery',
   description: 'IKEA-style inspiration for kitchens, closets, bathrooms, and laundry rooms.',
+  alternates: { canonical: '/gallery/inspiration' },
 };
 
 const gallerySections = [

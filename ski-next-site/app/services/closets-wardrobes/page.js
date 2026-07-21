@@ -1,3 +1,3 @@
 import ServicePage from '../../components/ServicePage';
-export const metadata = { title: 'IKEA Closet & PAX Wardrobe Installation | SKI', description: 'IKEA PAX wardrobe and closet installation in Kansas City and Lawrence.' };
+export const metadata = { title: 'IKEA PAX Closet & Wardrobe Installation', description: 'Professional IKEA PAX wardrobe and closet system assembly and installation throughout Kansas City and Lawrence.', alternates: { canonical: '/services/closets-wardrobes' } };
 export default function Page(){return <ServicePage title="IKEA Closet & Wardrobe Installation" intro="Custom PAX wardrobes, closet systems, and storage installations with a polished built-in feel." image="/images/services/kids-pax-reach-in.png" bullets={["PAX wardrobe systems","Closet organization solutions","Bedroom and entry storage","Inventory and installation planning"]}/>}

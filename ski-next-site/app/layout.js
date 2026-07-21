@@ -5,23 +5,52 @@ import './gallery.css';
 import './trademark.css';
 import './cta-adjustments.css';
 import './contact-details.css';
+import './area-seo.css';
 import Header from './components/Header';
 import Footer from './components/Footer';
 
 export const metadata = {
   metadataBase: new URL('https://swedishkitcheninstallers.com'),
-  title: 'SKI | Swedish Kitchen Installers',
-  description: 'IKEA kitchen, closet, wardrobe, and home system installation in Kansas City.',
-  alternates: { canonical: '/' },
+  title: {
+    default: 'IKEA Kitchen Installers in Kansas City | SKI',
+    template: '%s | Swedish Kitchen Installers',
+  },
+  description: 'Professional IKEA kitchen, PAX closet, wardrobe, and cabinet installation throughout Kansas City and Lawrence.',
+  applicationName: 'Swedish Kitchen Installers',
+  category: 'home services',
+  robots: { index: true, follow: true },
   openGraph: {
     title: 'SKI | Swedish Kitchen Installers',
     description: 'IKEA-focused installation serving the Kansas City metro and Lawrence area.',
-    url: 'https://swedishkitcheninstallers.com',
     siteName: 'Swedish Kitchen Installers',
     type: 'website',
   },
 };
 
+const localBusinessSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'HomeAndConstructionBusiness',
+  '@id': 'https://swedishkitcheninstallers.com/#business',
+  name: 'Swedish Kitchen Installers',
+  alternateName: 'SKI',
+  url: 'https://swedishkitcheninstallers.com',
+  logo: 'https://swedishkitcheninstallers.com/images/logo.png',
+  image: 'https://swedishkitcheninstallers.com/images/homepage-kitchen.jpg',
+  email: 'info@ski-kitchens.com',
+  telephone: '+1-913-229-4748',
+  priceRange: '$$',
+  description: 'Professional IKEA kitchen, PAX closet, wardrobe, and home system installation serving the Kansas City metro and Lawrence area.',
+  areaServed: [
+    'Kansas City, MO', 'Kansas City, KS', 'Overland Park, KS', 'Olathe, KS',
+    "Lee's Summit, MO", 'Independence, MO', 'Lawrence, KS',
+  ].map((name) => ({ '@type': 'City', name })),
+  knowsAbout: [
+    'IKEA kitchen installation', 'SEKTION cabinet installation',
+    'IKEA PAX wardrobe installation', 'closet system installation',
+    'IKEA cabinet assembly', 'IKEA home system installation',
+  ],
+};
+
 export default function RootLayout({ children }) {
-  return <html lang="en"><body><Header />{children}<Footer /></body></html>;
+  return <html lang="en"><body><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema).replace(/</g, '\\u003c') }} /><Header />{children}<Footer /></body></html>;
 }

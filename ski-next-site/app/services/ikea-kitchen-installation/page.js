@@ -1,3 +1,3 @@
 import ServicePage from '../../components/ServicePage';
-export const metadata = { title: 'IKEA Kitchen Installation in Kansas City | SKI', description: 'Professional IKEA kitchen installation in Kansas City. Upload your IKEA plan for a free quote.' };
+export const metadata = { title: 'IKEA Kitchen Installation in Kansas City', description: 'Professional IKEA SEKTION kitchen cabinet assembly and installation in Kansas City and Lawrence. Upload your plan for a free quote.', alternates: { canonical: '/services/ikea-kitchen-installation' } };
 export default function Page(){return <ServicePage title="IKEA Kitchen Installation in Kansas City" intro="Professional IKEA kitchen installation for homeowners who want a clean, organized, and dependable process." image="/images/services/white-kitchen.jpg" bullets={["SEKTION cabinet installation","Kitchen islands and pantry cabinets","Panels, fillers, toe kicks, and trim","Plan review and quote support"]}/>}

@@ -1,4 +1,4 @@
 import { QuoteSection } from '../components/Sections';
 import { contactDetails } from '../data';
-export const metadata = { title: 'Contact SKI | Swedish Kitchen Installers', description: 'Contact SKI for IKEA kitchen, closet, wardrobe, and home system installation.' };
+export const metadata = { title: 'Contact Our IKEA Installers', description: 'Contact SKI for IKEA kitchen, cabinet, PAX closet, wardrobe, and home system installation in Kansas City and Lawrence.', alternates: { canonical: '/contact' } };
 export default function Page(){return <main><section className="pageHero"><p>Contact</p><h1>Contact SKI</h1><span>Have a question about your IKEA project? Call/text or email our team, or submit your plan below for a free quote.</span></section><section className="section"><div className="contactCards"><article><h3>Phone</h3><a className="contactLink" href={contactDetails.phoneHref}>{contactDetails.phone}</a></article><article><h3>Email</h3><a className="contactLink" href={contactDetails.emailHref}>{contactDetails.email}</a></article><article><h3>Service Area</h3><p>Kansas City Metro + Lawrence</p></article></div></section><QuoteSection/></main>}
