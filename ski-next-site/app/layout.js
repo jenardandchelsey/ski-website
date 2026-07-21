@@ -12,19 +12,32 @@ import Footer from './components/Footer';
 export const metadata = {
   metadataBase: new URL('https://swedishkitcheninstallers.com'),
   title: {
-    default: 'IKEA Kitchen Installers in Kansas City | SKI',
+    default: 'IKEA Kitchen & PAX Installers in Kansas City | SKI',
     template: '%s | Swedish Kitchen Installers',
   },
-  description: 'Professional IKEA kitchen, PAX closet, wardrobe, and cabinet installation throughout Kansas City and Lawrence.',
+  description: 'Professional IKEA kitchen, cabinet, and PAX wardrobe installation across Kansas City and Lawrence. Upload your plan for a free quote.',
   applicationName: 'Swedish Kitchen Installers',
   category: 'home services',
   robots: { index: true, follow: true },
+  icons: {
+    icon: [{ url: '/images/ski-favicon.png', type: 'image/png', sizes: '1254x1254' }],
+    apple: [{ url: '/images/ski-favicon.png', type: 'image/png', sizes: '1254x1254' }],
+  },
   openGraph: {
-    title: 'SKI | Swedish Kitchen Installers',
-    description: 'IKEA-focused installation serving the Kansas City metro and Lawrence area.',
+    title: 'IKEA Kitchen & PAX Installers in Kansas City | SKI',
+    description: 'Professional IKEA kitchen, cabinet, and PAX wardrobe installation across Kansas City and Lawrence. Upload your plan for a free quote.',
     siteName: 'Swedish Kitchen Installers',
     type: 'website',
   },
+};
+
+const websiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  '@id': 'https://swedishkitcheninstallers.com/#website',
+  url: 'https://swedishkitcheninstallers.com/',
+  name: 'Swedish Kitchen Installers',
+  alternateName: ['SKI', 'swedishkitcheninstallers.com'],
 };
 
 const localBusinessSchema = {
@@ -52,5 +65,5 @@ const localBusinessSchema = {
 };
 
 export default function RootLayout({ children }) {
-  return <html lang="en"><body><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema).replace(/</g, '\\u003c') }} /><Header />{children}<Footer /></body></html>;
+  return <html lang="en"><body><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema).replace(/</g, '\\u003c') }} /><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema).replace(/</g, '\\u003c') }} /><Header />{children}<Footer /></body></html>;
 }
