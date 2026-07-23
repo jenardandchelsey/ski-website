@@ -4,7 +4,7 @@ import { UploadCloud, Check } from 'lucide-react';
 import { Stats, ServicesGrid, GalleryPreview, ProcessSection, QuoteSection, AreasPreview, FAQPreview, WhySKI } from './components/Sections';
 
 export const metadata = {
-  title: { absolute: 'IKEA Kitchen & PAX Installers in Kansas City | SKI' },
+  title: { absolute: 'Swedish Kitchen Installers | IKEA Kitchen & PAX Installation' },
   description: 'Professional IKEA kitchen, cabinet, and PAX wardrobe installation across Kansas City and Lawrence. Upload your plan for a free quote.',
   alternates: { canonical: '/' },
 };
@@ -13,7 +13,7 @@ export default function Home() {
   return <main>
     <section className="hero" id="home">
       <div className="heroText">
-        <h1>EXPERT IKEA<sup className="trademarkMark">&reg;</sup> KITCHEN<br />INSTALLATION IN<br />KANSAS CITY</h1>
+        <h1 style={{ textTransform: 'uppercase' }}>Expert IKEA<sup className="trademarkMark">&reg;</sup> Kitchen<br />Installation in<br />Kansas City</h1>
         <p className="tagline">We are the “KEA” to unlocking your new kitchen.</p>
         <ul><li><Check size={18}/> IKEA Kitchen Installation</li><li><Check size={18}/> Closets &amp; Wardrobes</li><li><Check size={18}/> IKEA Systems &amp; More</li><li><Check size={18}/> Design &amp; Inventory Management</li><li><Check size={18}/> Organized | Local | Professional</li></ul>
         <Link className="cta heroCta" href="/quote">UPLOAD YOUR KITCHEN PLAN<br />FOR A FREE QUOTE <UploadCloud size={26}/></Link>

@@ -12,7 +12,7 @@ import Footer from './components/Footer';
 export const metadata = {
   metadataBase: new URL('https://swedishkitcheninstallers.com'),
   title: {
-    default: 'IKEA Kitchen & PAX Installers in Kansas City | SKI',
+    default: 'Swedish Kitchen Installers | IKEA Kitchen & PAX Installation',
     template: '%s | Swedish Kitchen Installers',
   },
   description: 'Professional IKEA kitchen, cabinet, and PAX wardrobe installation across Kansas City and Lawrence. Upload your plan for a free quote.',
@@ -24,7 +24,7 @@ export const metadata = {
     apple: [{ url: '/images/ski-favicon.png', type: 'image/png', sizes: '1254x1254' }],
   },
   openGraph: {
-    title: 'IKEA Kitchen & PAX Installers in Kansas City | SKI',
+    title: 'Swedish Kitchen Installers | IKEA Kitchen & PAX Installation',
     description: 'Professional IKEA kitchen, cabinet, and PAX wardrobe installation across Kansas City and Lawrence. Upload your plan for a free quote.',
     siteName: 'Swedish Kitchen Installers',
     type: 'website',
