@@ -6,6 +6,7 @@ import './trademark.css';
 import './cta-adjustments.css';
 import './contact-details.css';
 import './area-seo.css';
+import './reach-in-closet.css';
 import Header from './components/Header';
 import Footer from './components/Footer';
 
