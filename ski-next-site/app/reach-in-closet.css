@@ -13,7 +13,7 @@
 .growingClosetImage img{object-fit:cover}
 .growingClosetImageButton img{transition:transform .25s ease}
 .growingClosetImageButton:hover img{transform:scale(1.025)}
-.growingClosetExpand{position:absolute;right:12px;bottom:12px;display:flex;align-items:center;gap:7px;padding:8px 11px;border-radius:999px;background:rgba(0,48,107,.92);color:#fff;font-size:12px;font-weight:900;letter-spacing:.04em;text-transform:uppercase;box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.growingClosetExpand{position:absolute;right:9px;bottom:9px;display:grid;place-items:center;width:31px;height:31px;border:1px solid rgba(255,255,255,.8);border-radius:7px;background:rgba(0,48,107,.9);color:#fff;box-shadow:0 3px 10px rgba(0,0,0,.22)}
 .growingClosetCardText{padding:18px 18px 22px}
 .growingClosetCardText p{margin:0 0 6px;color:#a47100;font-size:12px;font-weight:1000;letter-spacing:.13em;text-transform:uppercase}
 .growingClosetCardText h3{margin:0 0 9px;color:#00306b;font-size:20px;line-height:1.08;font-weight:1000}

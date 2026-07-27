@@ -39,7 +39,7 @@ function GrowingClosetStory(){
       <p>A closet that grows with your child</p>
       <h2 id="growing-closet-title">One Closet. Every Stage.</h2>
       <div className="growingClosetIntro">
-        Reach-in closets are one of the quickest, most economical ways to cut clutter and reclaim bedroom space. <strong>The belongings shown before are not removed</strong>—they are organized across hanging space, shelves, baskets, a hamper, and closed drawers. The system can grow and change with minimal cost as your child grows, and it is backed by a <strong>10-year warranty for peace of mind.</strong>
+        Reach-in closets are one of the quickest, most economical ways to cut clutter and reclaim bedroom space. <strong>Recapture valuable floor space and avoid buying bulky furniture</strong> by moving to a closet system that can grow and change with your child. The belongings shown before are not removed—they are organized across hanging space, shelves, baskets, a hamper, and closed drawers. The system can be adapted with minimal cost as your child grows, and it is backed by a <strong>10-year warranty for peace of mind.</strong>
       </div>
     </div>
     <GrowingClosetGallery stages={stages}/>

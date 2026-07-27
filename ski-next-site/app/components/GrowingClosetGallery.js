@@ -54,8 +54,7 @@ export default function GrowingClosetGallery({ stages }) {
                 />
               </span>
               <span className="growingClosetExpand" aria-hidden="true">
-                <Expand size={20} />
-                Enlarge
+                <Expand size={17} />
               </span>
             </button>
             <div className="growingClosetCardText">
