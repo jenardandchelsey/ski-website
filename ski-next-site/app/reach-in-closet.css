@@ -6,8 +6,14 @@
 .growingClosetIntro strong{color:#002b5c}
 .growingClosetStages{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;max-width:1180px;margin:0 auto}
 .growingClosetCard{overflow:hidden;border:1px solid #dde4ec;border-radius:10px;background:#fff;box-shadow:0 7px 20px rgba(0,31,79,.09)}
+.growingClosetImageButton{position:relative;display:block;width:100%;padding:0;border:0;background:none;color:inherit;cursor:zoom-in;text-align:inherit}
+.growingClosetImageButton:focus-visible{outline:4px solid #fbb316;outline-offset:-4px}
 .growingClosetImage{position:relative;aspect-ratio:4/3;background:#e9edf2}
+.growingClosetImageButton .growingClosetImage{display:block;overflow:hidden}
 .growingClosetImage img{object-fit:cover}
+.growingClosetImageButton img{transition:transform .25s ease}
+.growingClosetImageButton:hover img{transform:scale(1.025)}
+.growingClosetExpand{position:absolute;right:12px;bottom:12px;display:flex;align-items:center;gap:7px;padding:8px 11px;border-radius:999px;background:rgba(0,48,107,.92);color:#fff;font-size:12px;font-weight:900;letter-spacing:.04em;text-transform:uppercase;box-shadow:0 4px 12px rgba(0,0,0,.2)}
 .growingClosetCardText{padding:18px 18px 22px}
 .growingClosetCardText p{margin:0 0 6px;color:#a47100;font-size:12px;font-weight:1000;letter-spacing:.13em;text-transform:uppercase}
 .growingClosetCardText h3{margin:0 0 9px;color:#00306b;font-size:20px;line-height:1.08;font-weight:1000}
@@ -16,5 +22,20 @@
 .growingClosetWarranty{display:flex;align-items:center;justify-content:center;gap:18px;max-width:900px;margin:28px auto 0;padding:20px 28px;border-radius:9px;background:#00306b;color:#fff;text-align:left}
 .growingClosetWarranty strong{flex:0 0 auto;color:#fbb316;font-size:17px;text-transform:uppercase}
 .growingClosetWarranty span{font-size:15px;line-height:1.5}
+.growingClosetLightbox{position:fixed;inset:0;z-index:2000;display:flex;align-items:center;justify-content:center;padding:28px;background:rgba(2,13,29,.92);backdrop-filter:blur(4px)}
+.growingClosetLightboxPanel{position:relative;width:min(1180px,100%);max-height:calc(100vh - 56px);overflow:hidden;border-radius:14px;background:#fff;box-shadow:0 24px 80px rgba(0,0,0,.5)}
+.growingClosetLightboxImage{position:relative;height:min(72vh,760px);min-height:360px;background:#071529}
+.growingClosetLightboxImage img{object-fit:contain}
+.growingClosetLightboxClose{position:absolute;top:14px;right:14px;z-index:2;display:grid;place-items:center;width:46px;height:46px;padding:0;border:2px solid rgba(255,255,255,.8);border-radius:50%;background:rgba(0,48,107,.92);color:#fff;cursor:pointer;box-shadow:0 5px 16px rgba(0,0,0,.3)}
+.growingClosetLightboxArrow{position:absolute;top:calc(36% - 26px);z-index:2;display:grid;place-items:center;width:52px;height:58px;padding:0;border:1px solid rgba(255,255,255,.65);border-radius:8px;background:rgba(0,48,107,.9);color:#fff;cursor:pointer;box-shadow:0 5px 18px rgba(0,0,0,.25)}
+.growingClosetLightboxPrevious{left:16px}
+.growingClosetLightboxNext{right:16px}
+.growingClosetLightboxClose:hover,.growingClosetLightboxArrow:hover{background:#fbb316;color:#002b5c}
+.growingClosetLightboxClose:focus-visible,.growingClosetLightboxArrow:focus-visible{outline:3px solid #fbb316;outline-offset:3px}
+.growingClosetLightboxCaption{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:21px 28px 24px}
+.growingClosetLightboxCaption p{margin:0 0 5px;color:#a47100;font-size:12px;font-weight:1000;letter-spacing:.13em;text-transform:uppercase}
+.growingClosetLightboxCaption h3{margin:0 0 6px;color:#00306b;font-size:25px;line-height:1.12;font-weight:1000}
+.growingClosetLightboxCaption span{display:block;color:#5a6b7e;font-size:15px;line-height:1.45}
+.growingClosetLightboxCaption>strong{flex:0 0 auto;color:#00306b;font-size:15px}
 @media(max-width:1050px){.growingClosetStages{grid-template-columns:repeat(2,minmax(0,1fr));max-width:760px}.growingClosetImage{aspect-ratio:16/11}}
-@media(max-width:700px){.growingCloset{padding:46px 22px 50px}.growingClosetHeading h2{font-size:30px}.growingClosetIntro{font-size:15px}.growingClosetStages{grid-template-columns:1fr;max-width:440px}.growingClosetCardText h3{font-size:19px}.growingClosetClosing{font-size:18px;line-height:1.35}.growingClosetWarranty{display:block;padding:20px 22px;text-align:center}.growingClosetWarranty span{display:block;margin-top:8px}}
+@media(max-width:700px){.growingCloset{padding:46px 22px 50px}.growingClosetHeading h2{font-size:30px}.growingClosetIntro{font-size:15px}.growingClosetStages{grid-template-columns:1fr;max-width:440px}.growingClosetCardText h3{font-size:19px}.growingClosetClosing{font-size:18px;line-height:1.35}.growingClosetWarranty{display:block;padding:20px 22px;text-align:center}.growingClosetWarranty span{display:block;margin-top:8px}.growingClosetLightbox{padding:10px}.growingClosetLightboxPanel{max-height:calc(100vh - 20px);border-radius:10px}.growingClosetLightboxImage{height:62vh;min-height:280px}.growingClosetLightboxClose{top:10px;right:10px;width:42px;height:42px}.growingClosetLightboxArrow{top:calc(31% - 24px);width:44px;height:52px}.growingClosetLightboxPrevious{left:9px}.growingClosetLightboxNext{right:9px}.growingClosetLightboxCaption{align-items:flex-end;gap:12px;padding:17px 18px 19px}.growingClosetLightboxCaption h3{font-size:21px}.growingClosetLightboxCaption span{font-size:13px}.growingClosetLightboxCaption>strong{font-size:13px}}

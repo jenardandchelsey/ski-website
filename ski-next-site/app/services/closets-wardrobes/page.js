@@ -1,5 +1,5 @@
 import ServicePage from '../../components/ServicePage';
-import Image from 'next/image';
+import GrowingClosetGallery from '../../components/GrowingClosetGallery';
 export const metadata = { title: 'IKEA PAX Closet & Wardrobe Installation', description: 'Professional IKEA PAX wardrobe and closet system assembly and installation throughout Kansas City and Lawrence.', alternates: { canonical: '/services/closets-wardrobes' } };
 
 const stages = [
@@ -42,18 +42,7 @@ function GrowingClosetStory(){
         Reach-in closets are one of the quickest, most economical ways to cut clutter and reclaim bedroom space. <strong>The belongings shown before are not removed</strong>—they are organized across hanging space, shelves, baskets, a hamper, and closed drawers. The system can grow and change with minimal cost as your child grows, and it is backed by a <strong>10-year warranty for peace of mind.</strong>
       </div>
     </div>
-    <div className="growingClosetStages">
-      {stages.map((stage) => <article className="growingClosetCard" key={stage.label}>
-        <div className="growingClosetImage">
-          <Image src={stage.image} alt={stage.alt} fill sizes="(max-width: 700px) 100vw, (max-width: 1050px) 50vw, 25vw"/>
-        </div>
-        <div className="growingClosetCardText">
-          <p>{stage.label}</p>
-          <h3>{stage.title}</h3>
-          <span>{stage.description}</span>
-        </div>
-      </article>)}
-    </div>
+    <GrowingClosetGallery stages={stages}/>
     <p className="growingClosetClosing">Keep the belongings. Lose the clutter—and give the room back to your child.</p>
     <div className="growingClosetWarranty">
       <strong>Built to change. Backed to last.</strong>
