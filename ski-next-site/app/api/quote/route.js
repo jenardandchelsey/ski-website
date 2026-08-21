@@ -26,6 +26,7 @@ export async function POST(request) {
       name: clean(formData.get('name'), 120),
       email: clean(formData.get('email'), 180),
       phone: clean(formData.get('phone'), 60),
+      address: clean(formData.get('address'), 300),
       area: clean(formData.get('area'), 120),
       isCloset: formData.get('isCloset') === 'Yes' ? 'Yes' : 'No',
       closetType: clean(formData.get('closetType'), 120) || 'Not selected',
@@ -35,7 +36,7 @@ export async function POST(request) {
       details: clean(formData.get('details'), 5000),
     };
 
-    if (!submission.name || !submission.email || !submission.phone || !submission.area) {
+    if (!submission.name || !submission.email || !submission.phone || !submission.address || !submission.area) {
       return Response.json({ error: 'Please complete all required fields.' }, { status: 400 });
     }
     if (!/^\S+@\S+\.\S+$/.test(submission.email)) {
@@ -67,7 +68,7 @@ export async function POST(request) {
 
     const rows = [
       ['Full Name', submission.name], ['Email Address', submission.email], ['Phone Number', submission.phone],
-      ['Service Area', submission.area], ['Closet Project', submission.isCloset], ['Closet Type', submission.closetType],
+      ['Project Address', submission.address], ['Service Area', submission.area], ['Closet Project', submission.isCloset], ['Closet Type', submission.closetType],
       ['Closet Design Assistance', submission.designAssistance], ['Inventory Service', submission.inventoryService],
       ['Expedited Service', submission.expeditedService],
       ['Project Details', submission.details || 'Not provided'], ['Attachments', files.length ? files.map((file) => file.name).join(', ') : 'None'],

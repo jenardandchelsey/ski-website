@@ -44,7 +44,7 @@ export default function QuoteForm(){
     const form = event.currentTarget.form;
     const formData = new FormData(form);
     const submission = {
-      name: formData.get('name'), email: formData.get('email'), phone: formData.get('phone'), area: formData.get('area'),
+      name: formData.get('name'), email: formData.get('email'), phone: formData.get('phone'), address: formData.get('address'), area: formData.get('area'),
       isCloset: formData.get('isCloset') === 'Yes' ? 'Yes' : 'No', closetType: formData.get('closetType') || 'Not selected',
       designAssistance: formData.get('designAssistance') === 'Yes' ? 'Yes' : 'No', inventoryService: formData.get('inventoryService') === 'Yes' ? 'Yes' : 'No',
       expeditedService: formData.get('expeditedService') === 'Yes' ? 'Yes' : 'No', details: formData.get('details'),
@@ -107,6 +107,7 @@ export default function QuoteForm(){
     <input name="name" placeholder="Full Name" autoComplete="name" required/>
     <input name="email" type="email" placeholder="Email Address" autoComplete="email" required/>
     <input name="phone" type="tel" placeholder="Phone Number" autoComplete="tel" required/>
+    <textarea name="address" placeholder="Full Project Address (street, city, state, ZIP)" autoComplete="street-address" rows="3" maxLength="300" required/>
     <select name="area" defaultValue="" required><option value="" disabled>Service Area</option><option>Kansas City Metro</option><option>Lawrence</option><option>Other / Not Sure</option></select>
 
     <fieldset className="projectQuestions">
