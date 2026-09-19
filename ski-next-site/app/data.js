@@ -1,4 +1,4 @@
-import { Award, Star, Clock, ShieldCheck, Wrench, Pencil, Shirt, Grid2X2, ClipboardList, UploadCloud, CheckCircle, MapPin } from 'lucide-react';
+import { Award, Star, Clock, ShieldCheck, Wrench, Pencil, Shirt, Grid2X2, ClipboardList, UploadCloud, CheckCircle, MapPin, Hammer } from 'lucide-react';
 
 export const contactDetails = {
   email: 'info@ski-kitchens.com',
@@ -15,6 +15,7 @@ export const stats = [
 ];
 
 const serviceDefinitions = [
+  { slug: '/services/full-service-kitchen-prep', title: 'Full-Service Kitchen Prep', shortTitle: 'FULL-SERVICE\nKITCHEN PREP', text: 'Demo, rough-ins, repairs, and finishing that make your kitchen IKEA ready.', icon: Hammer, img: '/images/services/full-service-kitchen-prep/01-demolition.jpg', keywords: ['kitchen demolition', 'plumbing rough-ins', 'electrical rough-ins', 'drywall and painting'] },
   { slug: '/services/ikea-kitchen-installation', title: 'IKEA Kitchen Installation', shortTitle: 'IKEA KITCHEN\nINSTALLATION', text: 'Professional installation of IKEA kitchens done right the first time.', icon: Wrench, img: '/images/kitchen-install.png', keywords: ['SEKTION cabinets', 'kitchen islands', 'pantries', 'panels and trim'] },
   { slug: '/services/design-inventory-management', title: 'Design Assistance', shortTitle: 'DESIGN SERVICES', text: 'Plan review, design assistance, and project coordination.', icon: Pencil, img: '/images/design.png', keywords: ['IKEA plan review', 'box inventory', 'missing part checks', 'project scheduling'] },
   { slug: '/services/closets-wardrobes', title: 'Closets & Wardrobes', shortTitle: 'CLOSETS & WARDROBES', text: 'Custom PAX wardrobes, closets, and storage solutions.', icon: Shirt, img: '/images/closets.png', keywords: ['PAX wardrobes', 'closet systems', 'storage solutions', 'built-in look'] },
@@ -23,6 +24,7 @@ const serviceDefinitions = [
 ];
 
 const serviceImages = {
+  '/services/full-service-kitchen-prep': '/images/services/full-service-kitchen-prep/01-demolition.jpg',
   '/services/ikea-kitchen-installation': '/images/services/white-kitchen.jpg',
   '/services/design-inventory-management': '/images/services/closet-measuring-landscape.png',
   '/services/closets-wardrobes': '/images/services/kids-pax-reach-in.png',
@@ -46,7 +48,7 @@ export const serviceAreas = [
 
 export const faqs = [
   ['Do you only install IKEA systems?', 'Yes. SKI is focused on IKEA kitchens, closets, wardrobes, and IKEA home systems so our process stays specialized and efficient.'],
-  ['What services do you provide?', 'We provide inventory services, cabinet and closet assembly, and installation for cabinet and closet systems. We can also create small custom supplemental fillers, especially for closets, to help optimize challenging spaces. We do not provide demolition, painting, electrical work, plumbing work, moving services, or countertop installation, but we can connect you with trusted vendors who can coordinate with us on your project.'],
+  ['What services do you provide?', 'We provide full-service kitchen preparation, inventory services, cabinet and closet assembly, and installation for IKEA cabinet and closet systems. Kitchen preparation may include demolition, plumbing and electrical rough-ins or relocations, wall repair, taping, mudding, and painting so the space is ready for installation. We can also create small custom supplemental fillers, especially for closets, to help optimize challenging spaces. Countertop installation and moving services are not included.'],
   ['Do I need to have my IKEA plan before requesting a quote?', 'A plan helps us quote faster, but you can also upload photos, measurements, or notes and we can guide you through next steps.'],
   ['Do you serve Lawrence?', 'Yes. SKI serves the Kansas City metro and Lawrence area.'],
   ['Can you inventory my IKEA order?', 'Yes. Inventory and project management are part of our process. We can help identify missing or damaged items before installation day.'],

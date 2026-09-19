@@ -1,5 +1,6 @@
 const routes = [
   { path: '', priority: 1, changeFrequency: 'weekly' },
+  { path: '/services/full-service-kitchen-prep', priority: .9, changeFrequency: 'monthly' },
   { path: '/services/ikea-kitchen-installation', priority: .9, changeFrequency: 'monthly' },
   { path: '/services/closets-wardrobes', priority: .9, changeFrequency: 'monthly' },
   { path: '/services/ikea-systems', priority: .8, changeFrequency: 'monthly' },
@@ -25,7 +26,7 @@ const routes = [
 export default function sitemap() {
   return routes.map(({ path, priority, changeFrequency }) => ({
     url: `https://swedishkitcheninstallers.com${path}`,
-    lastModified: new Date('2026-07-20'),
+    lastModified: new Date('2026-09-19'),
     changeFrequency,
     priority,
   }));
