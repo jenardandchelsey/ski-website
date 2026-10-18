@@ -1,4 +1,6 @@
 const routes = [
+  { path: '/terms-and-conditions/prep-demolition', priority: .3, changeFrequency: 'yearly' },
+  { path: '/terms-and-conditions/cabinet-installation', priority: .3, changeFrequency: 'yearly' },
   { path: '', priority: 1, changeFrequency: 'weekly' },
   { path: '/services/full-service-kitchen-prep', priority: .9, changeFrequency: 'monthly' },
   { path: '/services/ikea-kitchen-installation', priority: .9, changeFrequency: 'monthly' },

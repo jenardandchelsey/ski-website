@@ -9,8 +9,8 @@ export default function Footer(){
     <div className="footerTerms" aria-labelledby="footer-terms-title">
       <h4 id="footer-terms-title">Terms &amp; Conditions</h4>
       <div className="footerTermsLinks">
-        <a href="https://script.google.com/macros/s/AKfycbwo6wHErZrzc_4xAp_D5aVnIZfYPPGZLg4W47kBzFaLlT-0tlIkLF5WmYvL3W3_5TLj/exec?skiTerms=SKI-TC-2026-10-17-v2" target="_blank" rel="noopener noreferrer">Cabinet Installation<span className="footerTermsHint"> (opens in a new tab)</span></a>
-        <a href="https://script.google.com/macros/s/AKfycbwo6wHErZrzc_4xAp_D5aVnIZfYPPGZLg4W47kBzFaLlT-0tlIkLF5WmYvL3W3_5TLj/exec?skiTerms=SKI-PREP-2026-10-17-v1" target="_blank" rel="noopener noreferrer">Prep &amp; Demolition<span className="footerTermsHint"> (opens in a new tab)</span></a>
+        <a href="/terms-and-conditions/cabinet-installation" >Cabinet Installation</a>
+        <a href="/terms-and-conditions/prep-demolition" >Prep &amp; Demolition</a>
       </div>
     </div>
   </footer>
