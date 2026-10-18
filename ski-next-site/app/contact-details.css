@@ -17,3 +17,41 @@
 .footerContact a {
   font-weight: 800;
 }
+
+.footerTerms {
+  grid-column: 1 / -1;
+  border-top: 1px solid #526c91;
+  padding-top: 24px;
+}
+
+.footerTermsLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 32px;
+}
+
+.footerTermsLinks a {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  line-height: 1.6;
+}
+
+.footerTermsLinks a:hover {
+  color: var(--gold);
+}
+
+.footerTermsLinks a:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 5px;
+}
+
+.footerTermsHint {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
