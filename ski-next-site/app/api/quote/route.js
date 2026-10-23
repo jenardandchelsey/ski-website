@@ -33,6 +33,7 @@ export async function POST(request) {
       designAssistance: formData.get('designAssistance') === 'Yes' ? 'Yes' : 'No',
       inventoryService: formData.get('inventoryService') === 'Yes' ? 'Yes' : 'No',
       expeditedService: formData.get('expeditedService') === 'Yes' ? 'Yes' : 'No',
+      demoKitchenPrepService: formData.get('demoKitchenPrepService') === 'Yes' ? 'Yes' : 'No',
       details: clean(formData.get('details'), 5000),
     };
 
@@ -71,6 +72,7 @@ export async function POST(request) {
       ['Project Address', submission.address], ['Service Area', submission.area], ['Closet Project', submission.isCloset], ['Closet Type', submission.closetType],
       ['Closet Design Assistance', submission.designAssistance], ['Inventory Service', submission.inventoryService],
       ['Expedited Service', submission.expeditedService],
+      ['Demo and/or Kitchen Prep Services', submission.demoKitchenPrepService],
       ['Project Details', submission.details || 'Not provided'], ['Attachments', files.length ? files.map((file) => file.name).join(', ') : 'None'],
     ];
 
