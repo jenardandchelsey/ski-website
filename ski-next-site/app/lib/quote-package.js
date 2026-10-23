@@ -59,6 +59,7 @@ export function buildQuotePdf(submission, fileNames = [], date = new Date()) {
     ...wrapText('Closet design assistance', submission.designAssistance),
     ...wrapText('Inventory service', submission.inventoryService),
     ...wrapText('Expedited service', submission.expeditedService),
+    ...wrapText('Demo and/or kitchen prep services', submission.demoKitchenPrepService),
     '',
     ...wrapText('Project details', submission.details),
     '',
