@@ -47,7 +47,8 @@ export default function QuoteForm(){
       name: formData.get('name'), email: formData.get('email'), phone: formData.get('phone'), address: formData.get('address'), area: formData.get('area'),
       isCloset: formData.get('isCloset') === 'Yes' ? 'Yes' : 'No', closetType: formData.get('closetType') || 'Not selected',
       designAssistance: formData.get('designAssistance') === 'Yes' ? 'Yes' : 'No', inventoryService: formData.get('inventoryService') === 'Yes' ? 'Yes' : 'No',
-      expeditedService: formData.get('expeditedService') === 'Yes' ? 'Yes' : 'No', details: formData.get('details'),
+      expeditedService: formData.get('expeditedService') === 'Yes' ? 'Yes' : 'No',
+      demoKitchenPrepService: formData.get('demoKitchenPrepService') === 'Yes' ? 'Yes' : 'No', details: formData.get('details'),
     };
     if (!submission.name) {
       setStatus({ type: 'error', message: 'Enter the customer name before saving a copy.' });
@@ -111,11 +112,12 @@ export default function QuoteForm(){
     <select name="area" defaultValue="" required><option value="" disabled>Service Area</option><option>Kansas City Metro</option><option>Lawrence</option><option>Other / Not Sure</option></select>
 
     <fieldset className="projectQuestions">
-      <legend>A couple quick questions</legend>
+      <legend>A few quick questions</legend>
       <label><input type="checkbox" name="isCloset" value="Yes" checked={isCloset} onChange={(event) => setIsCloset(event.target.checked)}/><span>Is this for a closet?</span></label>
       {isCloset && <div className="closetChoice"><span>Select the closet type:</span>{['Reach-in Closet', 'Small Walk-in Closet', 'Large Walk-in Closet', 'Master Bedroom Boutique-style'].map((type) => <label key={type}><input type="radio" name="closetType" value={type} required={isCloset}/><span>{type}</span></label>)}<label className="designAssistance"><input type="checkbox" name="designAssistance" value="Yes"/><span>Do you need closet design assistance?</span></label></div>}
       <label><input type="checkbox" name="inventoryService" value="Yes"/><span>Do you want us to perform inventory for you?</span></label>
       <label><input type="checkbox" name="expeditedService" value="Yes"/><span>Do you need expedited services?</span></label>
+      <label><input type="checkbox" name="demoKitchenPrepService" value="Yes"/><span>Do you need demo and/or kitchen prep services?</span></label>
     </fieldset>
 
     <textarea name="details" placeholder="Project Details / Notes (optional)" rows="5"/>
