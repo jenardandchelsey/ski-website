@@ -10,6 +10,7 @@ import './reach-in-closet.css';
 import './kitchen-prep.css';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import Analytics from './components/Analytics';
 
 export const metadata = {
   metadataBase: new URL('https://swedishkitcheninstallers.com'),
@@ -67,5 +68,5 @@ const localBusinessSchema = {
 };
 
 export default function RootLayout({ children }) {
-  return <html lang="en"><body><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema).replace(/</g, '\\u003c') }} /><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema).replace(/</g, '\\u003c') }} /><Header />{children}<Footer /></body></html>;
+  return <html lang="en"><body><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema).replace(/</g, '\\u003c') }} /><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema).replace(/</g, '\\u003c') }} /><Analytics /><Header />{children}<Footer /></body></html>;
 }

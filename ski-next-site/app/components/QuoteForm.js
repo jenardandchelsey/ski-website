@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import { FileText, Save, UploadCloud, X } from 'lucide-react';
 import { buildQuoteKey, buildQuotePdf, buildZip } from '../lib/quote-package';
+import { trackQuoteSuccess } from '../lib/analytics';
 
 const MAX_UPLOAD_BYTES = 4 * 1024 * 1024;
 const MAX_FILES = 10;
@@ -81,6 +82,7 @@ export default function QuoteForm(){
       const result = await response.json();
       if (!response.ok) throw new Error(result.error || 'Your request could not be sent.');
 
+      trackQuoteSuccess(formData, result);
       form.reset();
       setIsCloset(false);
       setFiles([]);
