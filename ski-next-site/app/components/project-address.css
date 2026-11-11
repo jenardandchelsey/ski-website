@@ -1,0 +1,5 @@
+.quoteAddress{min-width:0;margin:0;padding:0;border:0}
+.quoteAddress legend{padding:0;margin-bottom:6px;font-size:.875rem;font-weight:700}
+.quoteAddressLocality{display:grid;grid-template-columns:minmax(0,1fr) minmax(4.5rem,.35fr) minmax(6rem,.55fr);gap:8px;margin-top:8px}
+.quoteForm .quoteAddressLocality input{min-width:0;padding-inline:8px}
+.quoteAddress input[name=projectState]{text-transform:uppercase}

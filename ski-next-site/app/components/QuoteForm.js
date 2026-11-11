@@ -3,6 +3,8 @@
 import { useEffect, useMemo, useState } from 'react';
 import { FileText, Save, UploadCloud, X } from 'lucide-react';
 import { buildQuoteKey, buildQuotePdf, buildZip } from '../lib/quote-package';
+import { readProjectAddress } from '../lib/project-address';
+import './project-address.css';
 import { trackQuoteSuccess } from '../lib/analytics';
 
 const MAX_UPLOAD_BYTES = 4 * 1024 * 1024;
@@ -45,7 +47,7 @@ export default function QuoteForm(){
     const form = event.currentTarget.form;
     const formData = new FormData(form);
     const submission = {
-      name: formData.get('name'), email: formData.get('email'), phone: formData.get('phone'), address: formData.get('address'), area: formData.get('area'),
+      name: formData.get('name'), email: formData.get('email'), phone: formData.get('phone'), address: readProjectAddress(formData),
       isCloset: formData.get('isCloset') === 'Yes' ? 'Yes' : 'No', closetType: formData.get('closetType') || 'Not selected',
       designAssistance: formData.get('designAssistance') === 'Yes' ? 'Yes' : 'No', inventoryService: formData.get('inventoryService') === 'Yes' ? 'Yes' : 'No',
       expeditedService: formData.get('expeditedService') === 'Yes' ? 'Yes' : 'No',
@@ -53,6 +55,10 @@ export default function QuoteForm(){
     };
     if (!submission.name) {
       setStatus({ type: 'error', message: 'Enter the customer name before saving a copy.' });
+      return;
+    }
+    if (!submission.address) {
+      setStatus({ type: 'error', message: 'Enter the full project address before saving a copy.' });
       return;
     }
     const quoteKey = buildQuoteKey(submission);
@@ -74,6 +80,11 @@ export default function QuoteForm(){
     setStatus({ type: '', message: '' });
 
     const formData = new FormData(form);
+    if (!readProjectAddress(formData)) {
+      setStatus({ type: 'error', message: 'Enter the street address, city, two-letter state, and valid ZIP code.' });
+      setSubmitting(false);
+      return;
+    }
     formData.delete('plans');
     files.forEach((file) => formData.append('plans', file));
 
@@ -110,8 +121,15 @@ export default function QuoteForm(){
     <input name="name" placeholder="Full Name" autoComplete="name" required/>
     <input name="email" type="email" placeholder="Email Address" autoComplete="email" required/>
     <input name="phone" type="tel" placeholder="Phone Number" autoComplete="tel" required/>
-    <textarea name="address" placeholder="Full Project Address (street, city, state, ZIP)" autoComplete="street-address" rows="3" maxLength="300" required/>
-    <select name="area" defaultValue="" required><option value="" disabled>Service Area</option><option>Kansas City Metro</option><option>Lawrence</option><option>Other / Not Sure</option></select>
+    <fieldset className="quoteAddress">
+      <legend>Project address (required)</legend>
+      <input name="projectStreet" aria-label="Street address, including unit if applicable" placeholder="Street address, including unit" autoComplete="address-line1" maxLength={180} required/>
+      <div className="quoteAddressLocality">
+        <input name="projectCity" aria-label="City" placeholder="City" autoComplete="address-level2" maxLength={80} required/>
+        <input name="projectState" aria-label="Two-letter state code" placeholder="State" autoComplete="address-level1" autoCapitalize="characters" pattern="[A-Za-z]{2}" maxLength={2} required/>
+        <input name="projectZip" aria-label="ZIP code" placeholder="ZIP code" autoComplete="postal-code" inputMode="numeric" pattern="[0-9]{5}(-[0-9]{4})?" maxLength={10} required/>
+      </div>
+    </fieldset>
 
     <fieldset className="projectQuestions">
       <legend>A few quick questions</legend>
