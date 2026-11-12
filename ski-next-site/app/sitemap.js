@@ -28,7 +28,7 @@ const routes = [
 export default function sitemap() {
   return routes.map(({ path, priority, changeFrequency }) => ({
     url: `https://swedishkitcheninstallers.com${path}`,
-    lastModified: new Date('2026-09-19'),
+    lastModified: new Date(),
     changeFrequency,
     priority,
   }));

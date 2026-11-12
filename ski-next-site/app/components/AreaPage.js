@@ -36,7 +36,19 @@ const areaDetails = {
 
 export default function AreaPage({ city }) {
   const details = areaDetails[city];
+  const areaUrl = `https://swedishkitcheninstallers.com/service-areas/${city.toLowerCase().replaceAll(' ', '-').replaceAll("'", '')}`;
+  const localServiceSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    '@id': `${areaUrl}#service`,
+    name: `IKEA kitchen, cabinet, and wardrobe installation in ${city}`,
+    serviceType: ['IKEA kitchen installation', 'IKEA cabinet installation', 'IKEA PAX wardrobe installation'],
+    areaServed: { '@type': 'City', name: city },
+    provider: { '@id': 'https://swedishkitcheninstallers.com/#business' },
+    url: areaUrl,
+  };
   return <main>
+    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(localServiceSchema).replace(/</g, '\\u003c') }} />
     <section className="pageHero"><p>Local IKEA Installation</p><h1>IKEA Kitchen &amp; Cabinet Installation in {city}</h1><span>{details.intro}</span></section>
     <section className="section light areaSeoIntro">
       <p className="eyebrow">Serving {details.region}</p>
@@ -51,6 +63,11 @@ export default function AreaPage({ city }) {
         <article><h3>PAX Closets &amp; Wardrobes</h3><p>Installation of IKEA PAX wardrobes and closet systems for bedrooms, walk-in closets, reach-in closets, and organized storage spaces.</p></article>
         <article><h3>Nearby Communities</h3><p>Our service area includes {details.nearby}. Contact us to confirm availability for your address.</p></article>
       </div>
+    </section>
+    <section className="section light areaSeoIntro" aria-labelledby="local-quote-heading">
+      <h2 id="local-quote-heading">PLANNING AN IKEA PROJECT IN {city.toUpperCase()}?</h2>
+      <p className="wideText">The best first step is to share your IKEA plan, room measurements, and product list. SKI reviews the project details before quoting so homeowners understand the installation scope and can prepare for a smoother cabinet, closet, or storage-system installation.</p>
+      <Link className="smallCta" href="/quote">REQUEST A FREE PROJECT QUOTE</Link>
     </section>
     <ServicesGrid/><QuoteSection/>
   </main>;
