@@ -7,3 +7,9 @@
   padding: 12px 18px;
   text-align: center;
 }
+
+@media (max-width: 560px) {
+  .siteHeader > .brand { flex: 1 1 auto; min-width: 0; }
+  .siteHeader > .brand img { width: min(100%, 220px) !important; }
+  .siteHeader > .topButton { flex: 0 0 auto; white-space: nowrap; }
+}

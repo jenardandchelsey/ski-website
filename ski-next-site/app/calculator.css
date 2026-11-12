@@ -1,26 +1,69 @@
-.quoteWithCalculator{grid-template-columns:minmax(205px,.62fr) minmax(380px,1.18fr) minmax(295px,.82fr);gap:26px;padding:42px 38px;align-items:start}
-.quoteCalculators{display:flex;flex-direction:column;gap:14px;min-width:0}
-.calculatorCard{background:#f7f9fc;border:1px solid #d8dee8;border-radius:7px;padding:16px;box-shadow:0 4px 14px rgba(0,0,0,.05)}
-.calculatorEyebrow{margin:0 0 4px!important;color:#b77900!important;font-size:10px;font-weight:900;letter-spacing:.1em;text-transform:uppercase}
-.calculatorCard h3{margin:0 0 5px;color:#00306b;font-size:18px;line-height:1.15}
-.calculatorLead{margin:0 0 11px!important;color:#4b5d73;font-size:11px;line-height:1.35}
-.calculatorCard>label{display:block;color:#00306b;font-weight:900;text-transform:uppercase;font-size:10px;letter-spacing:.04em;margin-bottom:6px}
-.countControl{display:grid;grid-template-columns:34px 1fr 34px;gap:6px;align-items:center}
-.countControl button{width:100%;height:34px;padding:0;font-size:19px;box-shadow:none;border-radius:4px}
-.countControl button:disabled{background:#d8dee8;color:#7b8796}
-.countControl input{height:34px;margin:0;padding:5px;text-align:center;font-size:17px;font-weight:900;color:#002b5c}
-.cabinetRange{margin:9px 0 11px;padding:0;accent-color:#003f7d}
-.estimateResult{background:linear-gradient(120deg,#00346d,#002454);color:#fff;border-radius:6px;padding:11px 8px;text-align:center}
-.estimateResult span,.estimateResult small{display:block}
-.estimateResult span{text-transform:uppercase;font-size:8px;font-weight:900;letter-spacing:.07em;color:#dfe9f8}
-.estimateResult strong{display:block;font-size:22px;margin:4px 0;color:#fbb316}
-.estimateResult small{color:#dfe9f8;font-size:9px}
-.estimateNote{font-size:9px!important;line-height:1.35;color:#4b5d73!important;margin:9px 0!important}
-.calculatorCta{display:block;text-align:center;padding:8px 10px;font-size:9px}
-.closetTypes{display:grid;grid-template-columns:1fr 1fr;gap:5px;margin-bottom:10px}
-.closetTypes button{background:#fff;color:#00306b;border:1px solid #cfd6df;box-shadow:none;padding:7px;text-align:left;font-size:10px;min-height:45px;border-radius:4px}
-.closetTypes button strong,.closetTypes button span{display:block}
-.closetTypes button span{font-size:9px;color:#4b5d73;margin-top:2px}
-.closetTypes button.selected{border:2px solid #003f7d;background:#eef5fc;padding:6px}
-@media(max-width:1100px){.quoteWithCalculator{grid-template-columns:minmax(360px,1.2fr) minmax(285px,.8fr);padding:40px 30px}.quoteIntro{grid-column:1/-1}.quoteIntro ol{grid-template-columns:1fr 1fr}}
-@media(max-width:720px){.quoteWithCalculator{grid-template-columns:1fr;padding:38px 22px}.quoteIntro{grid-column:auto}.quoteIntro ol{grid-template-columns:1fr}.quoteCalculators{display:grid;grid-template-columns:1fr}.estimateResult strong{font-size:21px}}
+.quote.quoteWithCalculator {
+  display: block;
+  padding: 64px 28px 72px;
+  background: #f1f5f8;
+  border-top: 1px solid #dce5eb;
+  scroll-margin-top: 90px;
+}
+.quoteSectionInner { max-width: 1080px; margin: auto; }
+.quoteIntro { margin-bottom: 28px; }
+.quoteIntro h2 { font-size: 36px; line-height: 1.15; letter-spacing: 0; }
+.quoteIntro p { margin: 10px 0 0; line-height: 1.55; }
+.quoteIntro a { text-decoration: underline; text-underline-offset: 3px; font-weight: 700; }
+.quoteSectionGrid { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 5fr); gap: 28px; align-items: start; }
+.quotePlanning,.quoteRequest { min-width: 0; }
+.quoteRequest { scroll-margin-top: 110px; }
+.quoteRequest .quoteForm,.calculatorCard {
+  background: #fff;
+  border: 1px solid #d4e0e8;
+  border-radius: 8px;
+  padding: 24px;
+  box-shadow: none;
+}
+.quoteRequest .quoteForm h3,.calculatorCard h3 { margin: 0 0 14px; font-size: 21px; line-height: 1.2; color: var(--dark); }
+.quoteRequest .quoteForm fieldset { min-width: 0; }
+.quoteRequest .uploadBox { height: auto; min-height: 116px; padding: 12px; text-align: center; }
+.quoteRequest .uploadBox svg { width: 30px; height: 30px; }
+.quoteRequest .quoteContact { margin: 12px 0 0; font-size: 14px; }
+.quoteProjectPhoto { display: block; position: relative; margin-top: 18px; aspect-ratio: 2.08; overflow: hidden; border-radius: 8px; background: #d6dedf; }
+.quoteProjectPhoto img { object-fit: cover; object-position: 50% 51%; }
+.quoteProjectPhoto > span { position: absolute; bottom: 12px; left: 12px; max-width: calc(100% - 24px); background: #fff; color: var(--dark); border-radius: 4px; padding: 8px 11px; font-size: 13px; font-weight: 700; }
+.quoteProjectPhoto:hover > span { background: #fff1c8; }
+.calculatorTabs { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 4px; padding: 4px; background: #edf2f6; border-radius: 7px; }
+.calculatorTabs button { display: flex; align-items: center; justify-content: center; gap: 8px; min-height: 40px; padding: 6px; color: var(--dark); background: transparent; border: 1px solid transparent; font-size: 14px; font-weight: 700; cursor: pointer; }
+.calculatorTabs button[aria-selected="true"] { background: #fff; border-color: #c9d7e2; box-shadow: 0 1px 3px #14304715; }
+.calculatorTabs button[aria-selected="true"] svg { color: #865700; }
+.calculatorPanel[hidden] { display: none; }
+.calculatorFields { min-height: 166px; padding: 19px 0 12px; }
+.calculatorFields label { display: block; color: var(--dark); font-size: 13px; font-weight: 700; margin-bottom: 7px; }
+.calculatorFields input,.calculatorFields select { min-width: 0; margin: 0; }
+.calculatorFields select { height: 40px; padding: 6px 9px; }
+.countControl { display: grid; grid-template-columns: 40px minmax(0,1fr) 40px; gap: 7px; }
+.countControl button,.countControl input { height: 40px; border: 1px solid #cad7e2; border-radius: 5px; color: var(--dark); background: #fff; }
+.countControl button { padding: 0; display: grid; place-items: center; cursor: pointer; }
+.countControl button:hover:not(:disabled) { background: #edf2f6; }
+.countControl button:disabled { opacity: .45; cursor: not-allowed; }
+.countControl input { text-align: center; padding: 4px 8px; font-weight: 700; appearance: textfield; }
+.countControl input::-webkit-inner-spin-button,.countControl input::-webkit-outer-spin-button { appearance: none; margin: 0; }
+.calculatorFields .calculatorRange { display: block; padding: 0; margin: 7px 0 2px; height: 25px; accent-color: var(--blue); cursor: pointer; }
+.calculatorScale,.calculatorFields .calculatorSize { display: flex; justify-content: space-between; gap: 8px; }
+.calculatorScale { font-size: 12px; color: #52647b; }
+.calculatorFields .calculatorSize { margin: 9px 0 0; }
+.calculatorSize span { font-variant-numeric: tabular-nums; }
+.estimateResult { display: grid; gap: 5px; background: #082f5b; color: #fff; padding: 14px 16px; border-radius: 6px; }
+.estimateResult span,.estimateResult small { font-size: 12px; color: #e1eaf4; }
+.estimateResult strong { color: #ffd46b; font-size: 28px; line-height: 1.12; font-variant-numeric: tabular-nums; }
+.calculatorPanel .estimateNote { font-size: 12px; line-height: 1.48; margin: 11px 0 0; }
+.quoteWithCalculator :focus-visible { outline: 2px solid #0059a2; outline-offset: 3px; }
+@media(max-width: 740px) {
+  .quote.quoteWithCalculator { padding: 42px 18px 48px; }
+  .quoteIntro h2 { font-size: 30px; }
+  .quoteSectionGrid { grid-template-columns: minmax(0,1fr); gap: 20px; }
+  .quoteRequest .quoteForm,.calculatorCard { padding: 18px; }
+  .quoteProjectPhoto { display: none; }
+}
+@media(max-width: 360px) {
+  .estimateResult strong { font-size: 22px; }
+  .quoteRequest .quoteAddressLocality { grid-template-columns: minmax(0,1fr) minmax(0,1fr); }
+  .quoteRequest .quoteAddressLocality input[name="projectCity"] { grid-column: 1 / -1; }
+}

@@ -11,8 +11,7 @@ const MAX_UPLOAD_BYTES = 4 * 1024 * 1024;
 const MAX_FILES = 10;
 const ACCEPTED_TYPES = ['application/pdf', 'image/jpeg', 'image/png', 'image/webp'];
 
-export default function QuoteForm(){
-  const [isCloset, setIsCloset] = useState(false);
+export default function QuoteForm({ isCloset, setIsCloset }){
   const [files, setFiles] = useState([]);
   const [status, setStatus] = useState({ type: '', message: '' });
   const [submitting, setSubmitting] = useState(false);
@@ -106,7 +105,7 @@ export default function QuoteForm(){
   }
 
   return <form className="quoteForm" onSubmit={submitQuote}>
-    <h3>UPLOAD YOUR KITCHEN PLAN</h3>
+    <h3>Request a free quote</h3>
     <p className="formNotice">Share your plan, photos, and project details. We will send everything securely to our quote team.</p>
 
     <label className="uploadBox" onDragOver={(event) => event.preventDefault()} onDrop={(event) => { event.preventDefault(); chooseFiles(event.dataTransfer.files); }}>
