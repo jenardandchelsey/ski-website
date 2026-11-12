@@ -106,20 +106,19 @@ export default function QuoteForm({ isCloset, setIsCloset }){
 
   return <form className="quoteForm" onSubmit={submitQuote}>
     <h3>Request a free quote</h3>
-    <p className="formNotice">Share your plan, photos, and project details. We will send everything securely to our quote team.</p>
-
     <label className="uploadBox" onDragOver={(event) => event.preventDefault()} onDrop={(event) => { event.preventDefault(); chooseFiles(event.dataTransfer.files); }}>
-      <UploadCloud size={42}/>
-      <strong>Drag & drop your files here</strong>
-      <span>or click to browse (up to 10 PDF, JPG, PNG, or WEBP files; 4 MB total)</span>
+      <UploadCloud size={26} aria-hidden="true"/>
+      <span className="quoteUploadText"><strong>Upload plans or photos</strong><small>PDF, JPG, PNG or WEBP &middot; Up to 10 files, 4 MB total</small></span>
       <input type="file" name="plans" accept=".pdf,.jpg,.jpeg,.png,.webp" multiple onChange={(event) => { chooseFiles(event.target.files); event.target.value = ''; }} />
     </label>
 
     {files.length > 0 && <div className="filePreviewGrid">{previews.map(({ file, url }) => <article key={`${file.name}-${file.size}`}><div className="filePreview">{url ? <img src={url} alt=""/> : <FileText size={30}/>}</div><span title={file.name}>{file.name}</span><button type="button" aria-label={`Remove ${file.name}`} onClick={() => setFiles((current) => current.filter((item) => item !== file))}><X size={15}/></button></article>)}</div>}
 
-    <input name="name" placeholder="Full Name" autoComplete="name" required/>
-    <input name="email" type="email" placeholder="Email Address" autoComplete="email" required/>
-    <input name="phone" type="tel" placeholder="Phone Number" autoComplete="tel" required/>
+    <div className="quoteContactFields">
+      <input name="name" aria-label="Full name" placeholder="Full Name" autoComplete="name" required/>
+      <input name="email" aria-label="Email address" type="email" placeholder="Email Address" autoComplete="email" required/>
+      <input name="phone" aria-label="Phone number" type="tel" placeholder="Phone Number" autoComplete="tel" required/>
+    </div>
     <fieldset className="quoteAddress">
       <legend>Project address (required)</legend>
       <input name="projectStreet" aria-label="Street address, including unit if applicable" placeholder="Street address, including unit" autoComplete="address-line1" maxLength={180} required/>
@@ -130,6 +129,7 @@ export default function QuoteForm({ isCloset, setIsCloset }){
       </div>
     </fieldset>
 
+    <div className="quoteProjectFields">
     <fieldset className="projectQuestions">
       <legend>A few quick questions</legend>
       <label><input type="checkbox" name="isCloset" value="Yes" checked={isCloset} onChange={(event) => setIsCloset(event.target.checked)}/><span>Is this for a closet?</span></label>
@@ -139,7 +139,10 @@ export default function QuoteForm({ isCloset, setIsCloset }){
       <label><input type="checkbox" name="demoKitchenPrepService" value="Yes"/><span>Do you need demo and/or kitchen prep services?</span></label>
     </fieldset>
 
-    <textarea name="details" placeholder="Project Details / Notes (optional)" rows="5"/>
+    <label className="quoteNotes">Project notes <span>(optional)</span>
+      <textarea name="details" rows="3"/>
+    </label>
+    </div>
     <input className="honeypot" type="text" name="companyWebsite" tabIndex="-1" autoComplete="off" aria-hidden="true"/>
     <div className="formActions"><button type="submit" disabled={submitting}>{submitting ? 'SENDING...' : 'GET MY FREE QUOTE'}</button><button className="saveQuoteButton" type="button" onClick={saveQuoteCopy} title="Download the quote PDF and all selected files in one ZIP"><Save size={18}/> SAVE A COPY</button></div>
     {status.message && <p className={`formStatus ${status.type}`} role="status">{status.message}</p>}

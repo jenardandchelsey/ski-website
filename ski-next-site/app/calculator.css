@@ -1,16 +1,16 @@
 .quote.quoteWithCalculator {
   display: block;
-  padding: 64px 28px 72px;
+  padding: 44px max(24px, 4vw) 48px;
   background: #f1f5f8;
   border-top: 1px solid #dce5eb;
   scroll-margin-top: 90px;
 }
-.quoteSectionInner { max-width: 1080px; margin: auto; }
-.quoteIntro { margin-bottom: 28px; }
+.quoteSectionInner { max-width: 1380px; margin: auto; }
+.quoteIntro { margin-bottom: 20px; }
 .quoteIntro h2 { font-size: 36px; line-height: 1.15; letter-spacing: 0; }
 .quoteIntro p { margin: 10px 0 0; line-height: 1.55; }
 .quoteIntro a { text-decoration: underline; text-underline-offset: 3px; font-weight: 700; }
-.quoteSectionGrid { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 5fr); gap: 28px; align-items: start; }
+.quoteSectionGrid { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 8fr); gap: 24px; align-items: start; }
 .quotePlanning,.quoteRequest { min-width: 0; }
 .quoteRequest { scroll-margin-top: 110px; }
 .quoteRequest .quoteForm,.calculatorCard {
@@ -22,13 +22,24 @@
 }
 .quoteRequest .quoteForm h3,.calculatorCard h3 { margin: 0 0 14px; font-size: 21px; line-height: 1.2; color: var(--dark); }
 .quoteRequest .quoteForm fieldset { min-width: 0; }
-.quoteRequest .uploadBox { height: auto; min-height: 116px; padding: 12px; text-align: center; }
-.quoteRequest .uploadBox svg { width: 30px; height: 30px; }
+.quoteRequest .uploadBox { position: relative; flex-direction: row; justify-content: flex-start; gap: 12px; height: auto; min-height: 62px; padding: 10px 14px; }
+.quoteRequest .uploadBox svg { flex-shrink: 0; }
+.quoteRequest .uploadBox input { display: block; position: absolute; width: 1px; height: 1px; padding: 0; margin: 0; opacity: 0; }
+.quoteRequest .uploadBox:focus-within { outline: 2px solid #0059a2; outline-offset: 3px; }
+.quoteUploadText { display: grid; gap: 3px; }
+.quoteUploadText strong { color: var(--dark); font-size: 14px; }
+.quoteUploadText small { font-size: 12px; }
+.quoteContactFields,.quoteProjectFields { display: grid; gap: 10px; }
+.quoteContactFields { margin-bottom: 12px; }
+.quoteContactFields input,.quoteNotes textarea { min-width: 0; margin: 0; }
+.quoteProjectFields { align-items: start; }
+.quoteProjectFields .projectQuestions { margin-bottom: 0; padding-block: 7px; }
+.quoteProjectFields .projectQuestions > label { margin-block: 6px; }
+.quoteNotes { display: block; font-size: 13px; font-weight: 700; }
+.quoteNotes span { color: var(--muted); font-weight: 400; }
+.quoteNotes textarea { display: block; margin: 6px 0 0; resize: vertical; font-weight: 400; }
+.quoteRequest .formActions { margin-top: 12px; }
 .quoteRequest .quoteContact { margin: 12px 0 0; font-size: 14px; }
-.quoteProjectPhoto { display: block; position: relative; margin-top: 18px; aspect-ratio: 2.08; overflow: hidden; border-radius: 8px; background: #d6dedf; }
-.quoteProjectPhoto img { object-fit: cover; object-position: 50% 51%; }
-.quoteProjectPhoto > span { position: absolute; bottom: 12px; left: 12px; max-width: calc(100% - 24px); background: #fff; color: var(--dark); border-radius: 4px; padding: 8px 11px; font-size: 13px; font-weight: 700; }
-.quoteProjectPhoto:hover > span { background: #fff1c8; }
 .calculatorTabs { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 4px; padding: 4px; background: #edf2f6; border-radius: 7px; }
 .calculatorTabs button { display: flex; align-items: center; justify-content: center; gap: 8px; min-height: 40px; padding: 6px; color: var(--dark); background: transparent; border: 1px solid transparent; font-size: 14px; font-weight: 700; cursor: pointer; }
 .calculatorTabs button[aria-selected="true"] { background: #fff; border-color: #c9d7e2; box-shadow: 0 1px 3px #14304715; }
@@ -55,12 +66,16 @@
 .estimateResult strong { color: #ffd46b; font-size: 28px; line-height: 1.12; font-variant-numeric: tabular-nums; }
 .calculatorPanel .estimateNote { font-size: 12px; line-height: 1.48; margin: 11px 0 0; }
 .quoteWithCalculator :focus-visible { outline: 2px solid #0059a2; outline-offset: 3px; }
+@media(min-width: 1040px) {
+  .quoteContactFields { grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr) minmax(0, 1fr); }
+  .quoteProjectFields { grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); gap: 14px; }
+  .quoteNotes { padding-top: 2px; }
+}
 @media(max-width: 740px) {
-  .quote.quoteWithCalculator { padding: 42px 18px 48px; }
+  .quote.quoteWithCalculator { padding: 32px 18px 36px; }
   .quoteIntro h2 { font-size: 30px; }
   .quoteSectionGrid { grid-template-columns: minmax(0,1fr); gap: 20px; }
   .quoteRequest .quoteForm,.calculatorCard { padding: 18px; }
-  .quoteProjectPhoto { display: none; }
 }
 @media(max-width: 360px) {
   .estimateResult strong { font-size: 22px; }

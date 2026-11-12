@@ -26,10 +26,6 @@ export function QuoteSection(){
         <p>Get a ballpark estimate for cabinets or a closet, or <a href="#quote-request">send us your IKEA plan</a> for a free quote.</p>
       </div>
       <QuoteTools
-        projectPhoto={<Link className="quoteProjectPhoto" href="/gallery">
-            <Image src="/images/recent-projects/walkers-kitchen-wide.jpg" alt="Gray IKEA kitchen installed by SKI" fill sizes="(max-width: 740px) 92vw, 460px" />
-            <span>Explore completed projects <span aria-hidden="true">&rarr;</span></span>
-          </Link>}
         contact={<p className="quoteContact" data-nosnippet>Questions? <a href={contactDetails.phoneHref}>{contactDetails.phone}</a> or <a href={contactDetails.emailHref}>email SKI</a>.</p>}
       />
     </div>
