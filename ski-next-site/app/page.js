@@ -1,6 +1,6 @@
-import Image from 'next/image';
 import Link from 'next/link';
 import { UploadCloud, Check } from 'lucide-react';
+import HeroMedia from './components/HeroMedia';
 import { Stats, ServicesGrid, GalleryPreview, ProcessSection, QuoteSection, AreasPreview, FAQPreview, WhySKI } from './components/Sections';
 
 export const metadata = {
@@ -18,7 +18,7 @@ export default function Home() {
         <ul><li><Check size={18}/> IKEA Kitchen Installation</li><li><Check size={18}/> Closets &amp; Wardrobes</li><li><Check size={18}/> IKEA Systems &amp; More</li><li><Check size={18}/> Design &amp; Inventory Management</li><li><Check size={18}/> Organized | Local | Professional</li></ul>
         <Link className="cta heroCta" href="/quote">UPLOAD YOUR KITCHEN PLAN<br />FOR A FREE QUOTE <UploadCloud size={26}/></Link>
       </div>
-      <div className="heroImageWrap"><Image src="/images/homepage-kitchen.jpg" alt="Bright white kitchen with integrated cabinetry and peninsula" fill priority className="heroImage" /></div>
+      <HeroMedia />
     </section>
     <Stats /><ServicesGrid /><WhySKI /><GalleryPreview /><ProcessSection /><AreasPreview /><FAQPreview /><QuoteSection />
   </main>;
