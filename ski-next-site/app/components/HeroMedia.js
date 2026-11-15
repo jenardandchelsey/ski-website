@@ -7,6 +7,7 @@ import './hero-media.css';
 
 const PHOTO_DELAY_MS = 4000;
 const FINAL_PHOTO = 3;
+const MEDIA_VERSION = '720p';
 const videos = [
   { name: 'Kitchen inventory', file: 'ski-hero-inventory' },
   { name: 'A closet that grows with them', file: 'ski-hero-closet', focusRight: true },
@@ -112,8 +113,8 @@ export default function HeroMedia() {
                 <video
                   ref={slide === position ? videoRef : null}
                   className={focusRight ? 'heroMediaVideo heroMediaVideoFocusRight' : 'heroMediaVideo'}
-                  src={`/videos/${file}.mp4`}
-                  poster={`/videos/${file}-poster.webp`}
+                  src={`/videos/${file}.mp4?v=${MEDIA_VERSION}`}
+                  poster={`/videos/${file}-poster.webp?v=${MEDIA_VERSION}`}
                   playsInline
                   muted={muted}
                   aria-label={name}
