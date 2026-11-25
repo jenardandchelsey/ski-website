@@ -1,4 +1,6 @@
 export const MEASUREMENT_ID = 'G-M5SHYL4C3Q';
+export const ADS_ID = 'AW-18572613022';
+export const QUOTE_CONVERSION = `${ADS_ID}/4SYGCJ2fx7cdEJ6rjphF`;
 
 // Retain campaign attribution without forwarding arbitrary queries or hashes.
 const ATTRIBUTION_KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'gclid', 'gbraid', 'wbraid'];
@@ -21,5 +23,6 @@ export function trackEvent(name, parameters = {}) {
 export function trackQuoteSuccess(formData, result) {
   if (result?.ok === true && !formData.get('companyWebsite')) {
     trackEvent('generate_lead', { lead_source: 'website_quote', form_id: 'quote_request' });
+    trackEvent('conversion', { send_to: QUOTE_CONVERSION });
   }
 }

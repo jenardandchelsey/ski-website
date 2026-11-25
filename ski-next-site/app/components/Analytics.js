@@ -2,7 +2,7 @@
 import Script from 'next/script';
 import { useEffect, useRef } from 'react';
 import { usePathname } from 'next/navigation';
-import { MEASUREMENT_ID, analyticsUrl, trackEvent } from '../lib/analytics';
+import { ADS_ID, MEASUREMENT_ID, analyticsUrl, trackEvent } from '../lib/analytics';
 
 export default function Analytics() {
   const pathname = usePathname();
@@ -12,6 +12,11 @@ export default function Analytics() {
     window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
     if (!window.__skiAnalyticsInitialized) {
       window.gtag('js', new Date());
+      window.gtag('config', ADS_ID, {
+        allow_ad_personalization_signals: false,
+        page_location: analyticsUrl(window.location.href),
+        page_referrer: analyticsUrl(document.referrer),
+      });
       window.__skiAnalyticsInitialized = true;
     }
     const location = analyticsUrl(window.location.href);
