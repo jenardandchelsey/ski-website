@@ -1,6 +1,7 @@
 import { sendSmtpMail } from '../../lib/smtp';
 import { buildQuoteKey, buildQuotePdf, buildZip } from '../../lib/quote-package';
 import { readProjectAddress } from '../../lib/project-address';
+import { isBlockedQuoteContact } from '../../lib/quote-blocklist';
 
 export const runtime = 'nodejs';
 
@@ -22,6 +23,10 @@ export async function POST(request) {
   try {
     const formData = await request.formData();
     if (clean(formData.get('companyWebsite'))) return Response.json({ ok: true });
+
+    if (isBlockedQuoteContact({ email: formData.get('email'), phone: formData.get('phone') })) {
+      return Response.json({ error: 'This request could not be accepted.' }, { status: 403 });
+    }
 
     const submission = {
       name: clean(formData.get('name'), 120),
