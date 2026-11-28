@@ -58,15 +58,15 @@ const blockedContacts = [
 ];
 
 for (const contact of blockedContacts) {
-  test(`rejects ${JSON.stringify(contact)} before files, PDFs or email`, async () => {
+  test(`quietly discards ${JSON.stringify(contact)} before files, PDFs or email`, async () => {
     const { POST, calls } = await loadHandler();
     const data = submission(contact);
     const response = await POST({ formData: async () => ({
       get: (key) => data.get(key),
       getAll: () => { throw Error('Blocked submission reached attachment processing'); },
     }) });
-    assert.equal(response.status, 403);
-    assert.equal((await response.json()).ok, undefined);
+    assert.equal(response.status, 200);
+    assert.deepEqual(await response.json(), { ok: true });
     assert.deepEqual(calls, { mail: 0, pdf: 0, zip: 0, key: 0 });
   });
 }
@@ -83,7 +83,7 @@ for (const contact of [
     const data = submission(contact);
     const response = await POST({ formData: async () => data });
     assert.equal(response.status, 200);
-    assert.equal((await response.json()).ok, true);
+    assert.deepEqual(await response.json(), { ok: true, reference: 'Test-Quote' });
     assert.deepEqual(calls, { mail: 2, pdf: 1, zip: 0, key: 1 });
   });
 }
@@ -94,4 +94,27 @@ test('preserves existing required-field validation for other visitors', async ()
   assert.equal(response.status, 400);
   assert.equal(calls.mail, 0);
   assert.equal(calls.pdf, 0);
+});
+
+test('only counts submissions with a server-issued quote reference as leads and conversions', async () => {
+  const events = [];
+  const context = vm.createContext({ URL, window: {
+    location: { href: 'https://swedishkitcheninstallers.com/quote' },
+    gtag: (...args) => events.push(args),
+  } });
+  const analytics = new vm.SourceTextModule(fs.readFileSync(path.join(root, 'app/lib/analytics.js'), 'utf8'), { context });
+  await analytics.link(() => { throw Error('Unexpected analytics import'); });
+  await analytics.evaluate();
+  const { POST } = await loadHandler();
+  const blockedData = submission({ email: 'connor@automaxrevenue.com' });
+  const discarded = await POST({ formData: async () => blockedData });
+  analytics.namespace.trackQuoteSuccess(blockedData, await discarded.json());
+  assert.equal(events.length, 0);
+
+  const legitimateData = submission();
+  const accepted = await POST({ formData: async () => legitimateData });
+  analytics.namespace.trackQuoteSuccess(legitimateData, await accepted.json());
+  assert.equal(events.length, 2);
+  assert.equal(events[0][1], 'generate_lead');
+  assert.equal(events[1][1], 'conversion');
 });

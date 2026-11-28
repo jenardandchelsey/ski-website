@@ -25,7 +25,7 @@ export async function POST(request) {
     if (clean(formData.get('companyWebsite'))) return Response.json({ ok: true });
 
     if (isBlockedQuoteContact({ email: formData.get('email'), phone: formData.get('phone') })) {
-      return Response.json({ error: 'This request could not be accepted.' }, { status: 403 });
+      return Response.json({ ok: true });
     }
 
     const submission = {
@@ -157,7 +157,7 @@ quotes@ski-kitchens.com`;
       console.error('Quote confirmation email failed:', confirmationError);
     }
 
-    return Response.json({ ok: true });
+    return Response.json({ ok: true, reference: quoteKey });
   } catch (error) {
     console.error('Quote submission failed:', error);
     return Response.json({ error: 'Your request could not be sent. Please try again.' }, { status: 500 });

@@ -21,7 +21,7 @@ export function trackEvent(name, parameters = {}) {
   } catch { /* Analytics must never interrupt a quote or contact action. */ }
 }
 export function trackQuoteSuccess(formData, result) {
-  if (result?.ok === true && !formData.get('companyWebsite')) {
+  if (result?.ok === true && typeof result.reference === 'string' && result.reference && !formData.get('companyWebsite')) {
     trackEvent('generate_lead', { lead_source: 'website_quote', form_id: 'quote_request' });
     trackEvent('conversion', { send_to: QUOTE_CONVERSION });
   }
